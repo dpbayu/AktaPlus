@@ -29,14 +29,14 @@ if (isset($_POST['add-akta'])) {
     $ssp = $_POST['ssp'];
     $ssb = $_POST['ssb'];
     $description = $_POST['description'];
-    $ekstensi_diperbolehkan	= array('pdf','docx');
     $pdf_akta = $_FILES['pdf_akta']['name'];
+    $extention_file	= array('pdf','docx');
     $text = explode('.', $pdf_akta);
-    $ekstensi = strtolower(end($text));
+    $extention = strtolower(end($text));
     $ukuran = $_FILES['pdf_akta']['size'];
     $file_tmp = $_FILES['pdf_akta']['tmp_name'];
-    if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-        if ($ukuran < 1044070){ 
+    if (in_array($extention, $extention_file) === true) {
+        if ($ukuran < 1044070) { 
             move_uploaded_file($file_tmp, 'assets/'.$pdf_akta);
             $query = mysqli_query($db, "INSERT INTO akta (no_akta, type_akta, seller, buyer, no_hak, address, surface_area, transaction, certificate, pbb, njop, ssp, ssb, description, pdf_akta) VALUES ('$no_akta', '$type_akta', '$seller', '$buyer', '$no_hak', '$address', '$surface_area', '$transaction', '$certificate', '$pbb', '$njop', '$ssp', '$ssb', '$description', '$pdf_akta')");
             if ($query) {

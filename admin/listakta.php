@@ -35,6 +35,16 @@ $akta = query ("SELECT * FROM akta ORDER BY id DESC");
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
+                            <?php
+                            if (isset($_GET['message'])) {
+                                $msg = $_GET['message'];
+                                echo '
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>'.$msg.'</strong>
+                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                                </div>';
+                            }
+                            ?>
                                 <h4 class="card-title">Table Akta</h4>
                                 <table class="table table-hover">
                                     <thead>
@@ -88,21 +98,6 @@ $akta = query ("SELECT * FROM akta ORDER BY id DESC");
             </div>
         </div>
     </div>
-
-    <!-- JS Start  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <script src="assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets/js/todolist.js"></script>
-    <!-- JS End -->
-
 </body>
 
 </html>
