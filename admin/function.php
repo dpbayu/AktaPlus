@@ -1,5 +1,33 @@
 <?php
-require "db.php";
+session_start();
+require "../include/db.php";
+
+// Login
+if (isset($_POST['login'])) {
+    $nik = mysqli_escape_string($db, $_POST['nik']);
+    $password = mysqli_escape_string($db, $_POST['password']);
+    // pengecekan email
+    $sql = "SELECT * FROM user WHERE nik = '$nik'";
+    $result = mysqli_query($db, $sql);
+    if (mysqli_num_rows($result) <=0 ) {
+        header("Location: login.php?message=Login Gagal");
+        exit();
+    } else {
+        while ($row = mysqli_fetch_assoc($result)) {
+            if (!password_verify($password, $row['password'])) {
+                header("Location: login.php?message=Password Salah");
+                exit();
+            } else if (password_verify($password, $row['password'])) {
+                $_SESSION['nik'] = $row['nik'];
+                $_SESSION['fullname'] = $row['fullname'];
+                $_SESSION['password'] = $row['password'];
+                $_SESSION['role'] = $row['role'];
+                header("Location: index.php");
+                exit();
+            }
+        }
+    }
+}
 
 // Ambil data
 function query ($query) {

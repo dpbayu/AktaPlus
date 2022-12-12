@@ -1,6 +1,8 @@
 <!-- PHP Start -->
 <?php
+session_start();
 require "../include/db.php";
+if (isset($_SESSION['role']))
 ?>
 <!-- PHP End -->
 
