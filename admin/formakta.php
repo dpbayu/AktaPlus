@@ -1,6 +1,8 @@
 <!-- PHP Start -->
 <?php
-require "../../include/db.php";
+require "../include/db.php";
+require "../include/function.php";
+$akta = query ("SELECT * FROM akta");
 ?>
 <!-- PHP End -->
 
@@ -8,17 +10,17 @@ require "../../include/db.php";
 <html lang="en">
 
 <!-- Head Start -->
-<?php require "../partials/head.php" ?>
+<?php require "partials/head.php" ?>
 <!-- Head End -->
 
 <body>
     <div class="container-scroller">
         <!-- Navbar Start -->
-        <?php require "../partials/navbar.php" ?>
+        <?php require "partials/navbar.php" ?>
         <!-- Navbar End -->
         <div class="container-fluid page-body-wrapper">
             <!-- Sidebar Start -->
-            <?php require "../partials/sidebar.php" ?>
+            <?php require "partials/sidebar.php" ?>
             <!-- Sidebar End -->
             <div class="main-panel">
                 <!-- Content Start -->
@@ -27,76 +29,128 @@ require "../../include/db.php";
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white me-2">
                                 <i class="mdi mdi-home"></i>
-                            </span> Dashboard
+                            </span> Form Akta
                         </h3>
-                        <nav aria-label="breadcrumb">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <span></span>Overview <i
-                                        class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-danger card-img-holder text-white">
-                                <div class="card-body">
-                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3">Weekly Sales <i
-                                            class="mdi mdi-chart-line mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">$ 15,0000</h2>
-                                    <h6 class="card-text">Increased by 60%</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-info card-img-holder text-white">
-                                <div class="card-body">
-                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3">Weekly Orders <i
-                                            class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">45,6334</h2>
-                                    <h6 class="card-text">Decreased by 10%</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-success card-img-holder text-white">
-                                <div class="card-body">
-                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3">Visitors Online <i
-                                            class="mdi mdi-diamond mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">95,5741</h2>
-                                    <h6 class="card-text">Increased by 5%</h6>
-                                </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="forms-sample">
+                                    <div class="d-flex justify-content-evenly gap-5">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="NoAkta">No Akta</label>
+                                                <input type="text" class="form-control" id="NoAkta" name="no_akta"
+                                                    placeholder="Input no akta">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="TypeAkta">Type Akta</label>
+                                                <select class="form-control" style="height: 50px;" id="TypeAkta"
+                                                    name="type_akta">
+                                                    <option>AJB</option>
+                                                    <option>HIBAH</option>
+                                                    <option>APHB</option>
+                                                    <option>APHT</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Seller">Seller</label>
+                                                <input type="text" class="form-control" id="Seller" name="seller"
+                                                    placeholder="Input seller">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="buyer">Buyer</label>
+                                                <input type="text" class="form-control" id="buyer" name="buyer"
+                                                    placeholder="Input buyer" name="buyer">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="NoHAK">No HAK</label>
+                                                <input type="text" class="form-control" id="NoHAK" name="no_hak"
+                                                    placeholder="Input no HAK">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Address">Address</label>
+                                                <input type="text" class="form-control" id="Address" name="address"
+                                                    placeholder="Input address">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="SSB">SSB</label>
+                                                <input type="text" class="form-control" id="SSB" name="ssb"
+                                                    placeholder="Input SSB">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="SurfaceArea">Surface Area</label>
+                                                <input type="text" class="form-control" id="SurfaceArea"
+                                                    name="surface_area" placeholder="Input Surface Area">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Transaction">Transaction</label>
+                                                <input type="text" class="form-control" id="Transaction"
+                                                    name="transaction" placeholder="Input Transaction">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Certificate">Certificate</label>
+                                                <input type="text" class="form-control" id="Certificate"
+                                                    name="certificate" placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="PBB">PBB</label>
+                                                <input type="text" class="form-control" id="PBB" name="pbb"
+                                                    placeholder="Input PBB">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="NJOP">NJOP</label>
+                                                <input type="text" class="form-control" id="NJOP" name="njop"
+                                                    placeholder="Input NJOP">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Description">SSP</label>
+                                                <input type="text" class="form-control" id="SSP" name="ssp"
+                                                    placeholder="Input SSP">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Description">Description</label>
+                                                <input type="text" class="form-control" id="Description"
+                                                    name="description" placeholder="Input Description">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin: 0 67px;">
+                                        <label for="file">Upload file</label>
+                                        <input type="file" class="form-control file-upload-info" id="file"
+                                            name="pdf_akta" placeholder="Upload PDF">
+                                    </div>
+                                    <div class="mt-5">
+                                        <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                                        <button class="btn btn-light">Cancel</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Content End -->
                 <!-- Footer Start -->
-                <?php require "../partials/footer.php" ?>
+                <?php require "partials/footer.php" ?>
                 <!-- Footer End -->
             </div>
         </div>
     </div>
 
     <!-- JS Start  -->
-    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
-    <script src="../assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="../assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <script src="../assets/js/off-canvas.js"></script>
-    <script src="../assets/js/hoverable-collapse.js"></script>
-    <script src="../assets/js/misc.js"></script>
-    <script src="../assets/js/dashboard.js"></script>
-    <script src="../assets/js/todolist.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/todolist.js"></script>
     <!-- JS End -->
 
 </body>
