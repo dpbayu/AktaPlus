@@ -2,7 +2,7 @@
 <?php
 require "../include/db.php";
 require "../include/function.php";
-$akta = query ("SELECT * FROM akta");
+$akta = query ("SELECT * FROM akta ORDER BY id DESC");
 ?>
 <!-- PHP End -->
 
@@ -61,14 +61,17 @@ $akta = query ("SELECT * FROM akta");
                                             <td><?= $akt["address"] ?></td>
                                             <td><?= $akt["pdf_akta"] ?></td>
                                             <td>
-                                                <button type="button"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon">
+                                                <a href="editakta.php?id=<?= $akt['id'] ?>"
+                                                    class="btn btn-inverse-success btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
-                                                </button>
-                                                <button type="button"
-                                                    class="btn btn-inverse-danger btn-rounded btn-icon">
+                                                </a>
+                                                <a onclick="return confirm('Are you sure delete this data ?')"
+                                                    href="deleteakta.php?id=<?= $akt['id'] ?>"
+                                                    class="btn btn-inverse-danger btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
                                                     <i class="mdi mdi-delete"></i>
-                                                </button>
+                                                </a>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
