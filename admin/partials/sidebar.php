@@ -3,7 +3,7 @@
     <li class="nav-item nav-profile">
       <a href="#" class="nav-link">
         <div class="nav-profile-image">
-          <img src="assets/images/faces/face1.jpg" alt="profile">
+          <img src="../assets/image/<?php echo $_SESSION['profile_pic'] ?>" alt="profile">
         </div>
         <div class="nav-profile-text d-flex flex-column">
           <span class="font-weight-bold mb-2"><?php echo $_SESSION['fullname'] ?></span>

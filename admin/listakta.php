@@ -1,8 +1,7 @@
 <!-- PHP Start -->
 <?php
-session_start();
 require "../include/db.php";
-require "../include/function.php";
+require "function.php";
 $akta = query ("SELECT * FROM akta ORDER BY id DESC");
 ?>
 <!-- PHP End -->

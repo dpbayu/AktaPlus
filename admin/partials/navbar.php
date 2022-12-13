@@ -16,7 +16,7 @@
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
           aria-expanded="false">
           <div class="nav-profile-img">
-            <img src="assets/images/faces/face1.jpg" alt="image">
+            <img src="../assets/image/<?php echo $_SESSION['profile_pic'] ?>" alt="image">
           </div>
           <div class="nav-profile-text">
             <p class="mb-1 text-black"><?php echo $_SESSION['fullname'] ?></p>

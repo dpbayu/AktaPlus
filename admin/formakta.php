@@ -1,8 +1,7 @@
 <!-- PHP Start -->
 <?php
-session_start();
 require "../include/db.php";
-require "../include/function.php";
+require "function.php";
 ?>
 <!-- PHP End -->
 
@@ -35,7 +34,7 @@ require "../include/function.php";
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
-                                <form class="forms-sample" action="../include/function.php" method="POST" enctype="multipart/form-data">
+                                <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
                                     <div class="d-flex justify-content-evenly gap-5">
                                         <div class="col-md-5">
                                             <div class="form-group">
