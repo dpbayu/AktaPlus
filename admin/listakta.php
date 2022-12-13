@@ -1,10 +1,6 @@
 <!-- PHP Start -->
 <?php
 session_start();
-if(!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
 require "../include/db.php";
 require "../include/function.php";
 $akta = query ("SELECT * FROM akta ORDER BY id DESC");

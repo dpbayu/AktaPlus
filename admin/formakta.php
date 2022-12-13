@@ -1,10 +1,6 @@
 <!-- PHP Start -->
 <?php
 session_start();
-if(!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
 require "../include/db.php";
 require "../include/function.php";
 ?>
@@ -39,7 +35,7 @@ require "../include/function.php";
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
-                                <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
+                                <form class="forms-sample" action="../include/function.php" method="POST" enctype="multipart/form-data">
                                     <div class="d-flex justify-content-evenly gap-5">
                                         <div class="col-md-5">
                                             <div class="form-group">

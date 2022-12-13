@@ -1,11 +1,7 @@
 <!-- PHP Start -->
 <?php
 session_start();
-if(isset($_SESSION["login"])) {
-    header("Location: index.php");
-    exit;
-}
-require "function.php";
+require "../include/db.php";
 // Login
 if (isset($_POST['login'])) {
     $nik = mysqli_escape_string($db, $_POST['nik']);
