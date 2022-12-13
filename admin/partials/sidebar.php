@@ -24,7 +24,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="listakta.php">
+      <a class="nav-link" href="listakta.php?viewakta=true">
         <span class="menu-title">List Akta</span>
         <i class="mdi mdi-database menu-icon"></i>
       </a>
