@@ -2,11 +2,11 @@
 session_start();
 require "../include/db.php";
 
-// Login
+// Login Start
 if (isset($_POST['login'])) {
 $nik = mysqli_escape_string($db, $_POST['nik']);
 $password = mysqli_escape_string($db, $_POST['password']);
-    // pengecekan email
+    // pengecekan nik
     $sql = "SELECT * FROM user WHERE nik = '$nik'";
     $result = mysqli_query($db, $sql);
     if (mysqli_num_rows($result) <=0 ) {
@@ -30,8 +30,9 @@ $password = mysqli_escape_string($db, $_POST['password']);
         }
     }
 }
+// Login End
 
-// Ambil data
+// Query Start
 function query ($query) {
     global $db;
     $result = mysqli_query($db, $query);
@@ -41,8 +42,9 @@ function query ($query) {
     }
     return $rows;
 }
+// Query End
 
-// Tambah data
+// Add data Start
 if (isset($_POST['add-akta'])) {
     // print_r($_POST);
     $no_akta = $_POST['no_akta'];
@@ -70,10 +72,10 @@ if (isset($_POST['add-akta'])) {
             move_uploaded_file($file_tmp, '../assets/file/'.$pdf_akta);
             $query = mysqli_query($db, "INSERT INTO akta (no_akta, type_akta, seller, buyer, no_hak, address, surface_area, transaction, certificate, pbb, njop, ssp, ssb, description, pdf_akta) VALUES ('$no_akta', '$type_akta', '$seller', '$buyer', '$no_hak', '$address', '$surface_area', '$transaction', '$certificate', '$pbb', '$njop', '$ssp', '$ssb', '$description', '$pdf_akta')");
             if ($query) {
-                echo "<script>window.location.href='../admin/listakta.php';</script>";                    
+                echo "<script>window.location.href='listakta.php';</script>";                    
             }
             else {
-                echo "<script>window.location.href='../admin/formakta.php';</script>";                    
+                echo "<script>window.location.href='formakta.php';</script>";                    
             }
         }
         else {
@@ -81,8 +83,9 @@ if (isset($_POST['add-akta'])) {
         }
     }
 }
+// Add data End
 
-// Update Profile
+// Update Profile Start
 if (isset($_POST['update'])) {
     $nik = mysqli_real_escape_string($db, $_POST['nik']);
     $fullname = mysqli_real_escape_string($db, $_POST['fullname']);
@@ -121,9 +124,10 @@ if (isset($_POST['update'])) {
                     document.location.href = 'login.php';
                     </script>";
                 } else {
-                    echo "error";
-                }
+                echo "error";
             }
         }
     }
+}
+// Update Profile End
 ?>
