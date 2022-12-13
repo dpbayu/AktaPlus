@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2022 at 02:16 PM
+-- Generation Time: Dec 12, 2022 at 03:57 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `e-note`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
-  `admin_profile` text NOT NULL,
-  `nik` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id`, `fullname`, `admin_profile`, `nik`, `password`) VALUES
-(1, 'Dwi Putra Bayu', '1663495722Foto.jpeg', '41815010140', 'admin123');
 
 -- --------------------------------------------------------
 
@@ -68,62 +47,37 @@ CREATE TABLE `akta` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `akta`
---
-
-INSERT INTO `akta` (`id`, `no_akta`, `tipe_akta`, `penjual`, `pembeli`, `no_hak`, `alamat_tanah`, `luas_tanah`, `transaksi`, `sertifikat`, `pbb`, `njop`, `ssp`, `ssb`, `keterangan`, `pdf_akta`, `created_at`) VALUES
-(1, '1/2022', 'APHB', 'Nami', 'Robin', 12345, 'Fusha Street, East Blue', '500m', '2.000.000', 123456, 1234567, 12345678, 123456789, 1234567890, 'Nice place', 'file_1.pdf', '2022-09-15 13:04:04'),
-<<<<<<< HEAD
-(2, '2/2022', 'Hibah', 'Mikasa', 'Eren', 54321, 'Jl Keabadian No 7', '400m', '400.000', 965435, 2183465, 73281034, 264738219, 2147483647, 'Uwaw', 'file_2.pdf', '2022-09-15 13:05:17'),
-=======
-(2, '2/2022', 'Hibah', 'Mikasa', 'Eren', 54321, 'Jl Keabadian No 7', '400m', '400.000', 96543, 2183465, 73281034, 264738219, 2147483647, 'Uwaw', 'file_2.pdf', '2022-09-15 13:05:17'),
->>>>>>> 4ce176abb569e0931c16a41c9aa0e8c64381cb80
-(3, '3/2022', 'APHT', 'Sanji', 'Judge', 10932, 'Jl North Blue', '900m', '5.000.000', 283746, 1735490, 19304652, 162738491, 2147483647, 'This place like shit!!!', 'file_3.pdf', '2022-09-15 13:07:03'),
-(4, '4/2022', 'AJB', 'Syifa', 'Seprilla', 26374, 'Jl Kesesatan', '800m', '6.000.000', 126472, 2674823, 12345891, 213645984, 1264539062, 'Like this one', 'file_4.pdf', '2022-09-15 13:24:49'),
-(5, '5/2022', 'AJB', 'Sabo', 'Monkey D Luffy', 23467, 'Lulusiana Kingdom', '600m', '4.000.000', 253849, 1527392, 14253748, 162732109, 2147483647, 'This is it!', 'file_5.pdf', '2022-09-18 11:00:32');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `owner`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `owner` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `admin_profile` text NOT NULL,
-  `password` varchar(255) NOT NULL
+  `nik` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `profile_pic` text NOT NULL,
+  `role` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `owner`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `owner` (`id`, `username`, `admin_profile`, `password`) VALUES
-(1, 'dwiputrabayu', '1662911065Wallpaper 7.jpg', '123456');
+INSERT INTO `user` (`id`, `nik`, `password`, `fullname`, `profile_pic`, `role`) VALUES
+(1, '41815010140', '$2y$10$d6MY.YJLOuw5Sz38pY42MOtnxMsjIqmasX5DFDRBZamTIz0nKEHJ6', 'Dwi Putra Bayu', '', 'Admin'),
+(2, '41815010141', '$2y$10$IHFCxO60.elfe9b/KeFLDuw1iqgJBQEiOaufDf1Jo3OWXa7v1Nagu', 'Syifa Khairunnisa', '', 'Admin');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `user`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nik` (`nik`);
-
---
--- Indexes for table `akta`
---
-ALTER TABLE `akta`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `owner`
---
-ALTER TABLE `owner`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -131,22 +85,10 @@ ALTER TABLE `owner`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `akta`
---
-ALTER TABLE `akta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `owner`
---
-ALTER TABLE `owner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

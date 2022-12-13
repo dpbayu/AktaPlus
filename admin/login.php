@@ -1,6 +1,37 @@
 <!-- PHP Start -->
 <?php
+session_start();
+if(isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
 require "function.php";
+// Login
+if (isset($_POST['login'])) {
+    $nik = mysqli_escape_string($db, $_POST['nik']);
+    $password = mysqli_escape_string($db, $_POST['password']);
+    // pengecekan nik
+    $sql = "SELECT * FROM user WHERE nik = '$nik'";
+    $result = mysqli_query($db, $sql);
+    if (mysqli_num_rows($result) <=0 ) {
+        header("Location: login.php?message=Login Gagal");
+        exit();
+    } else {
+        while ($row = mysqli_fetch_assoc($result)) {
+            if (!password_verify($password, $row['password'])) {
+                header("Location: login.php?message=Password Salah");
+                exit();
+            } else if (password_verify($password, $row['password'])) {
+                $_SESSION['nik'] = $row['nik'];
+                $_SESSION['fullname'] = $row['fullname'];
+                $_SESSION['password'] = $row['password'];
+                $_SESSION['role'] = $row['role'];
+                header("Location: index.php");
+                exit();
+            }
+        }
+    }
+}
 ?>
 <!-- PHP End -->
 <!DOCTYPE html>
@@ -24,7 +55,7 @@ require "function.php";
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
-                            <form class="pt-3" action="function.php" method="POST">
+                            <form class="pt-3" action="" method="POST">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" placeholder="NIK"
                                         name="nik">
