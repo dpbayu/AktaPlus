@@ -1,23 +1,23 @@
 <!-- PHP Start -->
-session_start();
 <?php
-    require "../include/db.php";
-    $data = mysqli_query($db, "SELECT * FROM akta WHERE id = '".$_GET['id']."'");
-    $r = mysqli_fetch_array($data);
-    $no_akta = $r['no_akta'];
-    $type_akta = $r['type_akta'];
-    $seller = $r['seller'];
-    $buyer = $r['buyer'];
-    $no_hak = $r['no_hak'];
-    $address = $r['address'];
-    $surface_area = $r['surface_area'];
-    $transaction = $r['transaction'];
-    $certificate = $r['certificate'];
-    $pbb = $r['pbb'];
-    $njop = $r['njop'];
-    $ssp = $r['ssp'];
-    $ssb = $r['ssb'];
-    $description = $r['description'];
+session_start();
+require "../include/db.php";
+$data = mysqli_query($db, "SELECT * FROM akta WHERE id = '".$_GET['id']."'");
+$r = mysqli_fetch_array($data);
+$no_akta = $r['no_akta'];
+$type_akta = $r['type_akta'];
+$seller = $r['seller'];
+$buyer = $r['buyer'];
+$no_hak = $r['no_hak'];
+$address = $r['address'];
+$surface_area = $r['surface_area'];
+$transaction = $r['transaction'];
+$certificate = $r['certificate'];
+$pbb = $r['pbb'];
+$njop = $r['njop'];
+$ssp = $r['ssp'];
+$ssb = $r['ssb'];
+$description = $r['description'];
 ?>
 <!-- PHP End -->
 
@@ -43,8 +43,8 @@ session_start();
                     <div class="page-header">
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white me-2">
-                                <i class="mdi mdi-home"></i>
-                            </span> Form Akta
+                                <i class="mdi mdi-database"></i>
+                            </span>Edit Akta
                         </h3>
                     </div>
                     <div class="row">

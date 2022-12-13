@@ -27,8 +27,8 @@ require "function.php";
                     <div class="page-header">
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white me-2">
-                                <i class="mdi mdi-home"></i>
-                            </span> Form Akta
+                                <i class="mdi mdi-database-plus"></i>
+                            </span>Form Akta
                         </h3>
                     </div>
                     <div class="row">

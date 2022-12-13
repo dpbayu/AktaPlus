@@ -20,19 +20,19 @@
     <li class="nav-item">
       <a class="nav-link" href="formakta.php">
         <span class="menu-title">Form Akta</span>
-        <i class="mdi mdi-contacts menu-icon"></i>
+        <i class="mdi mdi-database-plus menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="listakta.php">
         <span class="menu-title">List Akta</span>
-        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+        <i class="mdi mdi-database menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="profile.php">
         <span class="menu-title">Profile</span>
-        <i class="mdi mdi-chart-bar menu-icon"></i>
+        <i class="mdi mdi-account menu-icon"></i>
       </a>
     </li>
   </ul>
