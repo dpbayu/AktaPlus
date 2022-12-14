@@ -185,7 +185,7 @@ $description = $r['description'];
         $file_tmp = $_FILES['pdf_akta']['tmp_name'];
         if (in_array($extention, $extention_file) === true) {
             if ($ukuran < 1044070) {
-                move_uploaded_file($file_tmp, 'assets/'.$pdf_akta);
+                move_uploaded_file($file_tmp, '../assets/file/'.$pdf_akta);
                 $update = mysqli_query($db, "UPDATE akta SET
                 no_akta = '".$no_akta."',
                 type_akta = '".$type_akta."',
@@ -204,10 +204,10 @@ $description = $r['description'];
                 pdf_akta = '".$pdf_akta."'
                 WHERE id = '".$_GET['id']."'");
                 if ($update) {
-                    echo "<script>window.location = 'listakta.php?message=Data update success'</script>";
+                    echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
                     exit();                
                 } else {
-                    echo "<script>window.location = 'listakta.php?message=Data update failed'</script>";
+                    echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
                     exit();                   
                 }
             }
@@ -229,10 +229,10 @@ $description = $r['description'];
             description = '".$description."'
             WHERE id = '".$_GET['id']."'");
             if ($update) {
-                echo "<script>window.location = 'listakta.php?message=Data update success'</script>";
+                echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
                 exit();                          
             } else {
-                echo "<script>window.location = 'listakta.php?message=Data update failed'</script>";
+                echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
                 exit();                          
             }
         }

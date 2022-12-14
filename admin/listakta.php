@@ -300,11 +300,11 @@ require "function.php";
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $q = "SELECT * FROM akta WHERE type_akta = 'hibah'";
+                                            $q = "SELECT * FROM akta WHERE type_akta = 'Hibah'";
                                             $r = mysqli_query($db,$q);
                                             $c = 1;
                                             while ($akta = mysqli_fetch_array($r)) {
-                                            if ($akta['type_akta']=='hibah') {
+                                            if ($akta['type_akta']=='Hibah') {
                                             ?>
                                         <tr>
                                             <td><?= $c ?></td>
@@ -380,11 +380,11 @@ require "function.php";
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $q = "SELECT * FROM akta WHERE type_akta = 'aphb'";
+                                            $q = "SELECT * FROM akta WHERE type_akta = 'APHB'";
                                             $r = mysqli_query($db,$q);
                                             $c = 1;
                                             while ($akta = mysqli_fetch_array($r)) {
-                                            if ($akta['type_akta']=='aphb') {
+                                            if ($akta['type_akta']=='APHB') {
                                             ?>
                                         <tr>
                                             <td><?= $c ?></td>
@@ -460,11 +460,11 @@ require "function.php";
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $q = "SELECT * FROM akta WHERE type_akta = 'apht'";
+                                            $q = "SELECT * FROM akta WHERE type_akta = 'APHT'";
                                             $r = mysqli_query($db,$q);
                                             $c = 1;
                                             while ($akta = mysqli_fetch_array($r)) {
-                                            if ($akta['type_akta']=='apht') {
+                                            if ($akta['type_akta']=='APHT') {
                                             ?>
                                         <tr>
                                             <td><?= $c ?></td>
