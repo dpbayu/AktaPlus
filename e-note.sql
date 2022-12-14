@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 12:07 PM
+-- Generation Time: Dec 14, 2022 at 07:46 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -52,8 +52,11 @@ CREATE TABLE `akta` (
 --
 
 INSERT INTO `akta` (`id`, `no_akta`, `type_akta`, `seller`, `buyer`, `no_hak`, `address`, `surface_area`, `transaction`, `certificate`, `pbb`, `njop`, `ssp`, `ssb`, `description`, `pdf_akta`, `created_at`) VALUES
-(8, '41815010147', 'AJB', 'Bayu', 'Velika', 78945, 'Madura', '800m', '7.0000.000', 212315, 1231864, 32168468, 123456, 2147483647, 'Good vibe', 'CV, Ijazah & Transkip.pdf', '2022-12-13 03:20:14'),
-(9, '41815010174', 'APHT', 'Velika Hafiza Fatihah', 'Prima Rifqah Nabiilah', 78945, 'Jakarta', '1000m', '7.0000.000', 212315, 1231864, 32168468, 123456, 2147483647, 'Good vibe', 'goodbrief.pdf', '2022-12-13 07:09:42');
+(1, '9902747433', 'AJB', 'Mikasa', 'Eren Yeager', 46990, 'Jakarta', '800m', '1.000.000', 593352, 7605445, 84659283, 834364380, 1340544862, 'Nice one', 'Contoh Jurnal 1.pdf', '2022-12-13 23:23:45'),
+(2, '6772086371', 'AJB', 'Syifa', 'Seprilla', 63096, 'Tangerang', '500m', '2.000.000', 139788, 3114302, 99290064, 593833244, 2147483647, 'Good', 'Contoh Jurnal 2.pdf', '2022-12-13 23:35:24'),
+(3, '2314133808', 'APHB', 'Nami', 'Luffy', 74901, 'Laught Tale', '2000m', '5.000.000', 556002, 8672117, 12805227, 775522559, 2147483647, 'Nakama', 'Contoh Jurnal 3.pdf', '2022-12-13 23:37:14'),
+(4, '5751523640', 'APHT', 'Dwi Rahmah', 'Yunita', 24527, 'Bandung', '100m', '8.000.000', 890560, 5241372, 29318136, 894087363, 2147483647, 'Great', '1. Halaman Judul.pdf', '2022-12-13 23:52:35'),
+(5, '9458504208', 'Hibah', 'Sanji Vinsmoke', 'Rin Tohsaka', 63502, 'Alabasta', '1.000m', '10.000.000', 213739, 2055961, 32049625, 813321784, 2147483647, 'Sand castle', 'Contoh Jurnal 6.pdf', '2022-12-13 23:56:02');
 
 -- --------------------------------------------------------
 
@@ -102,7 +105,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `akta`
 --
 ALTER TABLE `akta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
