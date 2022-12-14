@@ -82,6 +82,11 @@ require "function.php";
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
                                                 </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
+                                                </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-danger btn-rounded btn-icon"
@@ -107,6 +112,11 @@ require "function.php";
                                                     class="btn btn-inverse-success btn-rounded btn-icon"
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
+                                                </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
                                                 </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
@@ -134,6 +144,11 @@ require "function.php";
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
                                                 </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
+                                                </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-danger btn-rounded btn-icon"
@@ -159,6 +174,11 @@ require "function.php";
                                                     class="btn btn-inverse-success btn-rounded btn-icon"
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
+                                                </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
                                                 </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
@@ -240,6 +260,11 @@ require "function.php";
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
                                                 </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
+                                                </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-danger btn-rounded btn-icon"
@@ -319,6 +344,11 @@ require "function.php";
                                                     class="btn btn-inverse-success btn-rounded btn-icon"
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
+                                                </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
                                                 </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
@@ -400,6 +430,11 @@ require "function.php";
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
                                                 </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
+                                                </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-danger btn-rounded btn-icon"
@@ -479,6 +514,11 @@ require "function.php";
                                                     class="btn btn-inverse-success btn-rounded btn-icon"
                                                     style="padding-top: 12px;">
                                                     <i class="mdi mdi-tooltip-edit"></i>
+                                                </a>
+                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
+                                                    class="btn btn-inverse-info btn-rounded btn-icon"
+                                                    style="padding-top: 12px;">
+                                                    <i class="mdi mdi-briefcase-download"></i>
                                                 </a>
                                                 <a onclick="return confirm('Are you sure delete this data ?')"
                                                     href="deleteakta.php?id=<?= $akta['id'] ?>"
