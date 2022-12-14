@@ -2,6 +2,27 @@
 session_start();
 require "../include/db.php";
 
+if (isset($_POST['register'])) {
+    // print_r($_POST);
+    $nik = $_POST['nik'];
+    $fullname = $_POST['fullname'];
+    $role = $_POST['role'];
+    $password = $_POST['password'];
+    $result = mysqli_query($db, "SELECT nik FROM user WHERE nik ='$nik'");
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>alert('nik sudah terdaftar!')</script>";
+        return false;
+    }
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $query = mysqli_query($db, "INSERT INTO user (nik, fullname, role, password) VALUES ('$nik', '$fullname', '$role', '$password')");
+    if ($query) {
+        echo "<script>window.location.href='../index.php';</script>";                    
+    }
+    else {
+        echo "<script>window.location.href='../admin/register?message=Register failed';</script>";                    
+    }
+}
+
 // Login Start
 if (isset($_POST['login'])) {
 $nik = mysqli_escape_string($db, $_POST['nik']);
