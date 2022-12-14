@@ -10,12 +10,12 @@ $password = mysqli_escape_string($db, $_POST['password']);
     $sql = "SELECT * FROM user WHERE nik = '$nik'";
     $result = mysqli_query($db, $sql);
     if (mysqli_num_rows($result) <=0 ) {
-        header("Location: login.php?message=Login Gagal");
+        header("Location: ../index.php?message=Login Gagal");
         exit();
     } else {
         while ($row = mysqli_fetch_assoc($result)) {
             if (!password_verify($password, $row['password'])) {
-                header("Location: login.php?message=Password Salah");
+                header("Location: ../index.php?message=Password Salah");
                 exit();
             } else if (password_verify($password, $row['password'])) {
                 $_SESSION['id'] = $row['id'];
