@@ -50,7 +50,7 @@ require "../include/db.php";
                                         <input type="password" class="form-control" id="password" name="password">
                                     </div>
                                     <button type="submit" name="update"
-                                        class="btn btn-gradient-primary me-2">Submit</button>
+                                        class="btn btn-gradient-primary me-2">Update</button>
                                 </form>
                             </div>
                         </div>
