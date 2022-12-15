@@ -2,9 +2,6 @@
   <ul class="nav">
     <li class="nav-item nav-profile">
       <a href="#" class="nav-link">
-        <div class="nav-profile-image">
-          <img src="../assets/image/<?php echo $_SESSION['profile_pic'] ?>" alt="profile">
-        </div>
         <div class="nav-profile-text d-flex flex-column">
           <span class="font-weight-bold mb-2"><?php echo $_SESSION['fullname'] ?></span>
           <span class="text-secondary text-small"><?php echo $_SESSION['role'] ?></span>

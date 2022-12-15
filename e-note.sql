@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 07:46 AM
+-- Generation Time: Dec 15, 2022 at 03:05 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -69,7 +69,6 @@ CREATE TABLE `user` (
   `nik` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `fullname` varchar(255) NOT NULL,
-  `profile_pic` text NOT NULL,
   `role` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -77,9 +76,11 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nik`, `password`, `fullname`, `profile_pic`, `role`) VALUES
-(1, '41815010140', '$2y$10$4qmyKbZSbUzwqv5rHwWg4.t9BBuUks9HfngWuxEisomAfWR4bZdIW', 'Dwi Putra Bayu', '1670915468Antony.jpeg', 'Admin'),
-(2, '41815010141', '$2y$10$MCwv3cEI5aopl5/oZ3A76OychoAoNDy3nmEN2ywj7nXKL9Cz2lK5e', 'Syifa Khairunnisaa', '1670920089Tzuyu 4.jpg', 'Admin');
+INSERT INTO `user` (`id`, `nik`, `password`, `fullname`, `role`) VALUES
+(1, '41815010140', '$2y$10$4qmyKbZSbUzwqv5rHwWg4.t9BBuUks9HfngWuxEisomAfWR4bZdIW', 'Dwi Putra Bayu', 'Admin'),
+(2, '41815010141', '$2y$10$XINR9eT6kb8msLj3LjE9huMYWU2P/oj2qxYAgAbzhSg5LiNZ8.KB6', 'Syifa Khairunnisa', 'Admin'),
+(6, '41815010143', '$2y$10$wGDnSU653LDprBj0JDKryuESxXFtOX7OZLuZ2ESHdFDUUUyDFoyxK', 'Seprilla', 'Admin'),
+(7, '41815010144', '$2y$10$QAkJ5Hccf39SSrsfkjLXZOZzWq5jRYC2qokLHAGTGoNpZPmRRRA2W', 'Sila Indi', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -111,7 +112,7 @@ ALTER TABLE `akta`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

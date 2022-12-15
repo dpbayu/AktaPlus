@@ -43,7 +43,6 @@ $password = mysqli_escape_string($db, $_POST['password']);
                 $_SESSION['nik'] = $row['nik'];
                 $_SESSION['fullname'] = $row['fullname'];
                 $_SESSION['password'] = $row['password'];
-                $_SESSION['profile_pic'] = $row['profile_pic'];
                 $_SESSION['role'] = $row['role'];
                 header("Location: index.php");
                 exit();
@@ -111,25 +110,16 @@ if (isset($_POST['update'])) {
     $nik = mysqli_real_escape_string($db, $_POST['nik']);
     $fullname = mysqli_real_escape_string($db, $_POST['fullname']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
-    $imagename = time().$_FILES['profile_pic']['name'];
-    $imgtemp = $_FILES['profile_pic']['tmp_name'];
-    if($imgtemp==''){
-        $q = "SELECT * FROM user WHERE 1";
-        $r = mysqli_query($db,$q);
-        $d = mysqli_fetch_array($r);
-        $imagename = $d['profile_pic'];
-    }
     if (empty($nik) OR empty($fullname)) {
         echo "Field still empty";
     } else {
             if (empty($password)) {
                 move_uploaded_file($imgtemp,"../assets/image/$imagename");
                 $id = $_SESSION['id'];
-                $sql = "UPDATE user SET nik = '$nik', fullname = '$fullname', profile_pic = '$imagename' WHERE id = '$id'";
+                $sql = "UPDATE user SET nik = '$nik', fullname = '$fullname' WHERE id = '$id'";
                 if (mysqli_query($db, $sql)) {
                     $_SESSION['nik'] = $nik;
                     $_SESSION['fullname'] = $fullname;
-                    $_SESSION['profile_pic'] = $imagename;
                     echo "<script type='text/javascript'>document.location.href = 'profile.php';</script>";
                 } else {
                     echo "Error";
@@ -137,7 +127,7 @@ if (isset($_POST['update'])) {
             } else {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $id = $_SESSION['id'];
-                $sql2 = "UPDATE user SET nik = '$nik', fullname = '$fullname', profile_pic = '$imagename', password = '$hash' WHERE id = '$id'";
+                $sql2 = "UPDATE user SET nik = '$nik', fullname = '$fullname', password = '$hash' WHERE id = '$id'";
                 if (mysqli_query($db, $sql2)) {
                     session_unset();
                     session_destroy();

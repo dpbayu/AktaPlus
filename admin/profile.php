@@ -49,11 +49,6 @@ require "../include/db.php";
                                         <label for="password">Password</label>
                                         <input type="password" class="form-control" id="password" name="password">
                                     </div>
-                                    <img src="../assets/image/<?php echo $_SESSION['profile_pic'] ?>" class="col-3 mb-2">
-                                    <div class="form-group">
-                                        <label>Profile Picture</label>
-                                        <input type="file" class="form-control" name="profile_pic">
-                                    </div>
                                     <button type="submit" name="update"
                                         class="btn btn-gradient-primary me-2">Submit</button>
                                     <button class="btn btn-light">Cancel</button>
