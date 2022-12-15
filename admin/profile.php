@@ -51,7 +51,6 @@ require "../include/db.php";
                                     </div>
                                     <button type="submit" name="update"
                                         class="btn btn-gradient-primary me-2">Submit</button>
-                                    <button class="btn btn-light">Cancel</button>
                                 </form>
                             </div>
                         </div>
