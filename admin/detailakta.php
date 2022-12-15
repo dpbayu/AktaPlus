@@ -31,61 +31,66 @@ require "function.php";
                             </span>Detail Akta
                         </h3>
                     </div>
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Table Akta</h4>
-                                <?php
+                    <div style="text-align:right; margin-bottom: 10px;">
+                        <a class="no-print" href="javascript:printDiv('print-area-1');">Print</a>
+                    </div>
+                    <div id="print-area-1" class="print-area">
+                        <div class="row">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Table Akta</h4>
+                                    <?php
                                 $id = mysqli_real_escape_string($db,$_GET['id']);
                                 $sql = "SELECT * FROM akta WHERE id='$id'";
                                 $query = mysqli_query($db,$sql);
                                 $data = mysqli_fetch_array($query);
                                 ?>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>No Akta</th>
-                                            <th>Type Akta</th>
-                                            <th>Seller</th>
-                                            <th>Buyer</th>
-                                            <th>No HAK</th>
-                                            <th>Address</th>
-                                            <th>Surface Area</th>
-                                            <th>Transaction</th>
-                                            <th>Certificate</th>
-                                            <th>PBB</th>
-                                            <th>NJOP</th>
-                                            <th>SSP</th>
-                                            <th>SSB</th>
-                                            <th>Description</th>
-                                            <th>File</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><?= $data['id'] ?></td>
-                                            <td><?= $data["no_akta"] ?></td>
-                                            <td><?= $data["type_akta"] ?></td>
-                                            <td><?= $data["seller"] ?></td>
-                                            <td><?= $data["buyer"] ?></td>
-                                            <td><?= $data["no_hak"] ?></td>
-                                            <td><?= $data["address"] ?></td>
-                                            <td><?= $data["surface_area"] ?></td>
-                                            <td><?= $data["transaction"] ?></td>
-                                            <td><?= $data["certificate"] ?></td>
-                                            <td><?= $data["pbb"] ?></td>
-                                            <td><?= $data["njop"] ?></td>
-                                            <td><?= $data["ssp"] ?></td>
-                                            <td><?= $data["ssb"] ?></td>
-                                            <td><?= $data["description"] ?></td>
-                                            <td><?= $data["pdf_akta"] ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr style="font-size: 11px;">
+                                                <th>No</th>
+                                                <th>No Akta</th>
+                                                <th>Type Akta</th>
+                                                <th>Seller</th>
+                                                <th>Buyer</th>
+                                                <th>No HAK</th>
+                                                <th>Address</th>
+                                                <th>Surface Area</th>
+                                                <th>Transaction</th>
+                                                <th>Certificate</th>
+                                                <th>PBB</th>
+                                                <th>NJOP</th>
+                                                <th>SSP</th>
+                                                <th>SSB</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="font-size: 9px;">
+                                                <td><?= $data['id'] ?></td>
+                                                <td><?= $data["no_akta"] ?></td>
+                                                <td><?= $data["type_akta"] ?></td>
+                                                <td><?= $data["seller"] ?></td>
+                                                <td><?= $data["buyer"] ?></td>
+                                                <td><?= $data["no_hak"] ?></td>
+                                                <td><?= $data["address"] ?></td>
+                                                <td><?= $data["surface_area"] ?></td>
+                                                <td><?= $data["transaction"] ?></td>
+                                                <td><?= $data["certificate"] ?></td>
+                                                <td><?= $data["pbb"] ?></td>
+                                                <td><?= $data["njop"] ?></td>
+                                                <td><?= $data["ssp"] ?></td>
+                                                <td><?= $data["ssb"] ?></td>
+                                                <td><?= $data["description"] ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <textarea id="printing-css" style="display:none;"></textarea>
+                    <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
                 </div>
                 <!-- Content End -->
                 <!-- Footer Start -->
@@ -95,5 +100,15 @@ require "function.php";
         </div>
     </div>
 </body>
+<script>
+    function printDiv(elementId) {
+        var a = document.getElementById('printing-css').value;
+        var b = document.getElementById(elementId).innerHTML;
+        window.frames["print_frame"].document.title = document.title;
+        window.frames["print_frame"].document.body.innerHTML = '<style>' + a + '</style>' + b;
+        window.frames["print_frame"].window.focus();
+        window.frames["print_frame"].window.print();
+    }
+</script>
 
 </html>
