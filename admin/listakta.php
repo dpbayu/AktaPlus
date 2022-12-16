@@ -233,7 +233,7 @@ require "function.php";
                         </h3>
                     </div>
                     <div class="d-flex mb-3" >
-                        <a href="report.php" class="btn btn-gradient-dark">Report AJB</a>
+                        <a href="report.php?reportajb=true" class="btn btn-gradient-dark">Report AJB</a>
                     </div>
                     <div class="row">
                         <div class="card">
@@ -325,6 +325,9 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
+                    <div class="d-flex mb-3" >
+                        <a href="report.php?reporthibah=true" class="btn btn-gradient-dark">Report Hibah</a>
+                    </div>
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
@@ -414,6 +417,9 @@ require "function.php";
                                 <i class="mdi mdi-database"></i>
                             </span>List Akta
                         </h3>
+                    </div>
+                    <div class="d-flex mb-3" >
+                        <a href="report.php?reportaphb=true" class="btn btn-gradient-dark">Report APHB</a>
                     </div>
                     <div class="row">
                         <div class="card">
