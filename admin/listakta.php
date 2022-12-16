@@ -34,6 +34,9 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
+                    <div class="d-flex mb-3" >
+                        <a href="report.php?reportakta=true" class="btn btn-gradient-dark">Report Akta</a>
+                    </div>
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
@@ -510,6 +513,9 @@ require "function.php";
                                 <i class="mdi mdi-database"></i>
                             </span>List Akta
                         </h3>
+                    </div>
+                    <div class="d-flex mb-3" >
+                        <a href="report.php?reportapht=true" class="btn btn-gradient-dark">Report APHB</a>
                     </div>
                     <div class="row">
                         <div class="card">
