@@ -37,17 +37,17 @@ require "function.php";
                     <div id="print-area-1" class="print-area">
                         <div class="row">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="overflow-x: auto;">
                                     <h4 class="card-title">Table Akta</h4>
                                     <?php
-                                $id = mysqli_real_escape_string($db,$_GET['id']);
-                                $sql = "SELECT * FROM akta WHERE id='$id'";
-                                $query = mysqli_query($db,$sql);
-                                $data = mysqli_fetch_array($query);
-                                ?>
+                                    $id = mysqli_real_escape_string($db,$_GET['id']);
+                                    $sql = "SELECT * FROM akta WHERE id='$id'";
+                                    $query = mysqli_query($db,$sql);
+                                    $data = mysqli_fetch_array($query);
+                                    ?>
                                     <table class="table table-hover">
                                         <thead>
-                                            <tr style="font-size: 11px;">
+                                            <tr style="font-size: 11px; text-align:center; font-weight: 700;">
                                                 <th>No</th>
                                                 <th>No Akta</th>
                                                 <th>Type Akta</th>
@@ -66,7 +66,7 @@ require "function.php";
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr style="font-size: 9px;">
+                                            <tr style="font-size: 9px; text-align: center;">
                                                 <td><?= $data['id'] ?></td>
                                                 <td><?= $data["no_akta"] ?></td>
                                                 <td><?= $data["type_akta"] ?></td>
