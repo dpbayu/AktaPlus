@@ -232,6 +232,9 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
+                    <div class="d-flex mb-3" >
+                        <a href="report.php" class="btn btn-gradient-dark">Report AJB</a>
+                    </div>
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
