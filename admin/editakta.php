@@ -146,7 +146,7 @@ $description = $r['description'];
                                     <div class="mt-5">
                                         <button type="submit" name="update"
                                             class="btn btn-gradient-primary me-2">Submit</button>
-                                        <button class="btn btn-light">Cancel</button>
+                                        <input class="btn btn-light" type="button" onclick="history.back()" value="Back">
                                     </div>
                                 </form>
                             </div>
@@ -161,8 +161,9 @@ $description = $r['description'];
         </div>
     </div>
 
+    <!-- PHP Start -->
     <?php
-    if(isset($_POST['update'])) {
+    if (isset($_POST['update'])) {
         $no_akta = $_POST['no_akta'];
         $type_akta = $_POST['type_akta'];
         $seller = $_POST['seller'];
@@ -238,6 +239,7 @@ $description = $r['description'];
         }
     }
 ?>
+<!-- PHP End -->
 </body>
 
 </html>

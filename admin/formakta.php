@@ -124,7 +124,7 @@ require "function.php";
                                     <div class="mt-5">
                                         <button type="submit" name="add-akta"
                                             class="btn btn-gradient-primary me-2">Submit</button>
-                                        <button class="btn btn-light">Cancel</button>
+                                        <button type="reset" class="btn btn-light">Reset</button>
                                     </div>
                                 </form>
                             </div>
