@@ -42,6 +42,7 @@ $password = mysqli_escape_string($db, $_POST['password']);
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['nik'] = $row['nik'];
                 $_SESSION['fullname'] = $row['fullname'];
+                $_SESSION['user_profile'] = $row['user_profile'];
                 $_SESSION['password'] = $row['password'];
                 $_SESSION['role'] = $row['role'];
                 header("Location: index.php");
