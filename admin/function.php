@@ -110,16 +110,26 @@ if (isset($_POST['update'])) {
     $nik = mysqli_real_escape_string($db, $_POST['nik']);
     $fullname = mysqli_real_escape_string($db, $_POST['fullname']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
+    $user_profile = $_FILES['profilepic']['name'];
+    $imgtemp = $_FILES['profilepic']['tmp_name'];
+    if ($imgtemp=='') {
+        $id = $_SESSION['id'];
+        $q = "SELECT * FROM user WHERE id = '$id'";
+        $r = mysqli_query($db,$q);
+        $d = mysqli_fetch_array($r);
+        $user_profile = $d['user_profile'];
+    }
+    move_uploaded_file($imgtemp,"../assets/img/$user_profile");
     if (empty($nik) OR empty($fullname)) {
         echo "Field still empty";
     } else {
             if (empty($password)) {
-                move_uploaded_file($imgtemp,"../assets/image/$imagename");
                 $id = $_SESSION['id'];
-                $sql = "UPDATE user SET nik = '$nik', fullname = '$fullname' WHERE id = '$id'";
+                $sql = "UPDATE user SET nik = '$nik', fullname = '$fullname', user_profile = '$user_profile' WHERE id = '$id'";
                 if (mysqli_query($db, $sql)) {
                     $_SESSION['nik'] = $nik;
                     $_SESSION['fullname'] = $fullname;
+                    $_SESSION['user_profile'] = $user_profile;
                     echo "<script type='text/javascript'>document.location.href = 'profile.php';</script>";
                 } else {
                     echo "Error";

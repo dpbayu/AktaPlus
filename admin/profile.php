@@ -34,7 +34,8 @@ require "../include/db.php";
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
-                                <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
+                                <form class="forms-sample" action="function.php" method="POST"
+                                    enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="NIK">NIK</label>
                                         <input type="text" class="form-control" id="NIK" name="nik"
@@ -48,6 +49,12 @@ require "../include/db.php";
                                     <div class="form-group">
                                         <label for="password">Password</label>
                                         <input type="password" class="form-control" id="password" name="password">
+                                    </div>
+                                    <img src="../assets/img/<?php echo $_SESSION['user_profile'] ?>"
+                                        class="rounded-circle" height="200" width="200">
+                                    <div class="form-group">
+                                        <label for="profil">Profile</label>
+                                        <input type="file" class="form-control" id="profile" name="profilepic">
                                     </div>
                                     <button type="submit" name="update"
                                         class="btn btn-gradient-primary me-2">Update</button>
