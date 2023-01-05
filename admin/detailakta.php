@@ -32,7 +32,7 @@ require "function.php";
                         </h3>
                     </div>
                     <div style="text-align:right; margin-bottom: 10px;">
-                        <a class="no-print" href="javascript:printDiv('print-area-1');">Print</a>
+                        <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
                     </div>
                     <div id="print-area-1" class="print-area">
                         <div class="row">
@@ -45,7 +45,7 @@ require "function.php";
                                     $query = mysqli_query($db,$sql);
                                     $data = mysqli_fetch_array($query);
                                     ?>
-                                    <table class="table table-hover">
+                                    <table class="table table-hover" border="1" cellpadding="5" cellspacing="0">
                                         <thead>
                                             <tr style="font-size: 11px; text-align:center; font-weight: 700;">
                                                 <th>No</th>
