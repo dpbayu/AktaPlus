@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2022 at 03:05 AM
+-- Generation Time: Jan 10, 2023 at 01:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -52,11 +52,11 @@ CREATE TABLE `akta` (
 --
 
 INSERT INTO `akta` (`id`, `no_akta`, `type_akta`, `seller`, `buyer`, `no_hak`, `address`, `surface_area`, `transaction`, `certificate`, `pbb`, `njop`, `ssp`, `ssb`, `description`, `pdf_akta`, `created_at`) VALUES
-(1, '9902747433', 'AJB', 'Mikasa', 'Eren Yeager', 46990, 'Jakarta', '800m', '1.000.000', 593352, 7605445, 84659283, 834364380, 1340544862, 'Nice one', 'Contoh Jurnal 1.pdf', '2022-12-13 23:23:45'),
-(2, '6772086371', 'AJB', 'Syifa', 'Seprilla', 63096, 'Tangerang', '500m', '2.000.000', 139788, 3114302, 99290064, 593833244, 2147483647, 'Good', 'Contoh Jurnal 2.pdf', '2022-12-13 23:35:24'),
-(3, '2314133808', 'APHB', 'Nami', 'Luffy', 74901, 'Laught Tale', '2000m', '5.000.000', 556002, 8672117, 12805227, 775522559, 2147483647, 'Nakama', 'Contoh Jurnal 3.pdf', '2022-12-13 23:37:14'),
-(4, '5751523640', 'APHT', 'Dwi Rahmah', 'Yunita', 24527, 'Bandung', '100m', '8.000.000', 890560, 5241372, 29318136, 894087363, 2147483647, 'Great', '1. Halaman Judul.pdf', '2022-12-13 23:52:35'),
-(5, '9458504208', 'Hibah', 'Sanji Vinsmoke', 'Rin Tohsaka', 63502, 'Alabasta', '1.000m', '10.000.000', 213739, 2055961, 32049625, 813321784, 2147483647, 'Sand castle', 'Contoh Jurnal 6.pdf', '2022-12-13 23:56:02');
+(1, '9902747433', 'AJB', 'Robin', 'Eren', 46990, 'Jakarta', '800m', '1.000.000', 593352, 7605445, 84659283, 834364380, 1340544862, 'Nice one', 'Contoh Jurnal 1.pdf', '2022-12-13 23:23:45'),
+(2, '6772086371', 'AJB', 'Syifa Kh', 'Seprilla Rizky', 63096, 'Tangerang', '500m', '2.000.000', 139788, 3114302, 99290064, 593833244, 2147483647, 'Good', 'Contoh Jurnal 2.pdf', '2022-12-13 23:35:24'),
+(3, '2314133808', 'APHB', 'Nami', 'Monkey D Luffy', 74901, 'Laught Tale', '2000m', '5.000.000', 556002, 8672117, 12805227, 775522559, 2147483647, 'Nakama', 'Contoh Jurnal 3.pdf', '2022-12-13 23:37:14'),
+(4, '5751523640', 'APHT', 'Dwi Rahmah', 'Yunita Syaba', 24527, 'Bandung', '100m', '8.000.000', 890560, 5241372, 29318136, 894087363, 2147483647, 'Great', '1. Halaman Judul.pdf', '2022-12-13 23:52:35'),
+(5, '9458504208', 'Hibah', 'Sanji', 'Dwi Satria', 63502, 'Alabasta', '1.000m', '10.000.000', 213739, 2055961, 32049625, 813321784, 2147483647, 'Sand castle', 'Contoh Jurnal 6.pdf', '2022-12-13 23:56:02');
 
 -- --------------------------------------------------------
 
@@ -69,6 +69,7 @@ CREATE TABLE `user` (
   `nik` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `fullname` varchar(255) NOT NULL,
+  `user_profile` text NOT NULL,
   `role` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -76,11 +77,12 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nik`, `password`, `fullname`, `role`) VALUES
-(1, '41815010140', '$2y$10$4qmyKbZSbUzwqv5rHwWg4.t9BBuUks9HfngWuxEisomAfWR4bZdIW', 'Dwi Putra Bayu', 'Admin'),
-(2, '41815010141', '$2y$10$XINR9eT6kb8msLj3LjE9huMYWU2P/oj2qxYAgAbzhSg5LiNZ8.KB6', 'Syifa Khairunnisa', 'Admin'),
-(6, '41815010143', '$2y$10$wGDnSU653LDprBj0JDKryuESxXFtOX7OZLuZ2ESHdFDUUUyDFoyxK', 'Seprilla', 'Admin'),
-(7, '41815010144', '$2y$10$QAkJ5Hccf39SSrsfkjLXZOZzWq5jRYC2qokLHAGTGoNpZPmRRRA2W', 'Sila Indi', 'Admin');
+INSERT INTO `user` (`id`, `nik`, `password`, `fullname`, `user_profile`, `role`) VALUES
+(1, '41815010140', '$2y$10$4qmyKbZSbUzwqv5rHwWg4.t9BBuUks9HfngWuxEisomAfWR4bZdIW', 'Dwi Putra Bayu', 'Tzuyu 2.jpg', 'Admin'),
+(2, '41815010141', '$2y$10$XINR9eT6kb8msLj3LjE9huMYWU2P/oj2qxYAgAbzhSg5LiNZ8.KB6', 'Syifa Khairunnisa', 'Tzuyu 4.jpg', 'Admin'),
+(6, '41815010143', '$2y$10$7S6KU74w1fgc8fpORK6N1.tu1w/jqd1e4VnTKpzDuriQP8H9QeIsG', 'Seprilla Rizky', 'Lunafreya.jpg', 'Admin'),
+(7, '41815010144', '$2y$10$uHZV1Azju9Y3TgmJ.yiE4.9REqtOaFgQPuWF5714G42JjOVkcsJVy', 'Sila Indi', 'Tzuyu 1.jfif', 'Admin'),
+(8, '41815010145', '$2y$10$KEMiGHo5maT9xVgWzcBiiOQFIG276d.A2bD74o9.LZB.Bxn.FsqZG', 'Velika Hafiza', 'Tzuyu 3.jpg', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -112,7 +114,7 @@ ALTER TABLE `akta`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
