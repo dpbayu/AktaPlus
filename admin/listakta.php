@@ -50,7 +50,7 @@ require "function.php";
                                 }
                                 ?>
                                 <h4 class="card-title">Table Akta</h4>
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="example">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -251,7 +251,7 @@ require "function.php";
                                 }
                                 ?>
                                 <h4 class="card-title">Table Akta</h4>
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="example">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -344,7 +344,7 @@ require "function.php";
                                     }
                                     ?>
                                 <h4 class="card-title">Table Akta</h4>
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="example">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -437,7 +437,7 @@ require "function.php";
                                     }
                                     ?>
                                 <h4 class="card-title">Table Akta</h4>
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="example">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -530,7 +530,7 @@ require "function.php";
                                     }
                                     ?>
                                 <h4 class="card-title">Table Akta</h4>
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="example">
                                     <thead>
                                         <tr>
                                             <th>No</th>

@@ -18,4 +18,16 @@
 <script src="assets/js/misc.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/todolist.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#example').DataTable({
+        paging: true,
+        ordering: true,
+        info: true,
+    });
+});
+</script>
 <!-- JS End -->
