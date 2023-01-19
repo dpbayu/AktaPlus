@@ -44,10 +44,15 @@ require "include/db.php";
                                     <input type="password" class="form-control form-control-lg" placeholder="Password"
                                         name="password">
                                 </div>
-                                <button type="submit" name="login"
-                                    class="mt-3 btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN
-                                    IN
-                                </button>
+                                <div class="d-flex justify-content-between">
+                                    <button type="submit" name="login"
+                                        class="mt-3 btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN
+                                        IN
+                                    </button>
+                                    <!-- <button type="submit" name="login"
+                                        class="mt-3 btn btn-block btn-gradient-success btn-lg font-weight-medium auth-form-btn">FORGET PASSWORD
+                                    </button> -->
+                                </div>
                                 <div class="text-center mt-4 font-weight-light"> Don't have an account? <a
                                         href="admin/register.php" class="text-primary">Create</a>
                                 </div>
