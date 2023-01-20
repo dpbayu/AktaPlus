@@ -33,7 +33,7 @@ require "../include/db.php";
                     </div>
                     <div class="row">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="overflow-x: auto;">
                                 <h4 class="card-title">Table Akta</h4>
                                 <?php
                                 $id = mysqli_real_escape_string($db,$_GET['id']);
@@ -83,8 +83,8 @@ require "../include/db.php";
                                         </tr>
                                     </tbody>
                                 </table>
-                                <embed class="my-5" src="../assets/file/<?= $data["pdf_akta"] ?>" type="application/pdf" width="100%" height="700px" />
                             </div>
+                            <embed class="my-5" src="../assets/file/<?= $data["pdf_akta"] ?>" type="application/pdf" width="100%" height="700px" />
                         </div>
                     </div>
                 </div>
