@@ -24,46 +24,8 @@ if (isset($_POST['register'])) {
 }
 
 // Login Start
-if (isset($_POST['login'])) {
-$nik = mysqli_escape_string($db, $_POST['nik']);
-$password = mysqli_escape_string($db, $_POST['password']);
-    // pengecekan nik
-    $sql = "SELECT * FROM user WHERE nik = '$nik'";
-    $result = mysqli_query($db, $sql);
-    if (mysqli_num_rows($result) <=0 ) {
-        header("Location: ../index.php?message=Login Gagal");
-        exit();
-    } else {
-        while ($row = mysqli_fetch_assoc($result)) {
-            if (!password_verify($password, $row['password'])) {
-                header("Location: ../index.php?message=Password Salah");
-                exit();
-            } else if (password_verify($password, $row['password'])) {
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['nik'] = $row['nik'];
-                $_SESSION['fullname'] = $row['fullname'];
-                $_SESSION['user_profile'] = $row['user_profile'];
-                $_SESSION['password'] = $row['password'];
-                $_SESSION['role'] = $row['role'];
-                header("Location: index.php");
-                exit();
-            }
-        }
-    }
-}
-// Login End
 
-// Query Start
-function query ($query) {
-    global $db;
-    $result = mysqli_query($db, $query);
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    return $rows;
-}
-// Query End
+// Login End
 
 // Add data Start
 if (isset($_POST['add-akta'])) {
