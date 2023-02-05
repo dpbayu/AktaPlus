@@ -230,7 +230,7 @@ $description = $r['description'];
             description = '".$description."'
             WHERE id = '".$_GET['id']."'");
             if ($update) {
-                echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
+                echo "<script>window.location.href='listakta.php?viewakta=true';</script>";
                 exit();                          
             } else {
                 echo "<script>window.location = 'listakta.php?viewakta=true'</script>";

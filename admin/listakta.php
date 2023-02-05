@@ -24,6 +24,16 @@ require "function.php";
             <div class="main-panel">
                 <!-- Content Start -->
                 <?php
+                    if (isset($_GET['message'])) {
+                        $msg = $_GET['message'];
+                        echo '
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>'.$msg.'</strong>
+                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                ?>
+                <?php
                 if (isset($_GET['viewakta'])) {
                 ?>
                 <div class="content-wrapper">
@@ -34,7 +44,7 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
-                    <div class="d-flex mb-3" >
+                    <div class="d-flex mb-3">
                         <a href="report.php?reportakta=true" class="btn btn-gradient-dark">Report Akta</a>
                     </div>
                     <div class="row">
@@ -235,7 +245,7 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
-                    <div class="d-flex mb-3" >
+                    <div class="d-flex mb-3">
                         <a href="report.php?reportajb=true" class="btn btn-gradient-dark">Report AJB</a>
                     </div>
                     <div class="row">
@@ -328,7 +338,7 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
-                    <div class="d-flex mb-3" >
+                    <div class="d-flex mb-3">
                         <a href="report.php?reporthibah=true" class="btn btn-gradient-dark">Report Hibah</a>
                     </div>
                     <div class="row">
@@ -421,7 +431,7 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
-                    <div class="d-flex mb-3" >
+                    <div class="d-flex mb-3">
                         <a href="report.php?reportaphb=true" class="btn btn-gradient-dark">Report APHB</a>
                     </div>
                     <div class="row">
@@ -514,7 +524,7 @@ require "function.php";
                             </span>List Akta
                         </h3>
                     </div>
-                    <div class="d-flex mb-3" >
+                    <div class="d-flex mb-3">
                         <a href="report.php?reportapht=true" class="btn btn-gradient-dark">Report APHB</a>
                     </div>
                     <div class="row">
