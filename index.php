@@ -30,7 +30,6 @@ if (isset($_POST['login'])) {
 <html lang="en">
 
 <!-- Head Start -->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,9 +57,11 @@ if (isset($_POST['login'])) {
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
+                            <!-- Notif Error Start -->
                             <?php if(isset($error)) : ?>
                             <p style="color: red; font-style: italic;">Username / password salah</p>
                             <?php endif; ?>
+                            <!-- Notif Error End -->
                             <form class="pt-3" action="" method="POST">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" placeholder="NIK"
