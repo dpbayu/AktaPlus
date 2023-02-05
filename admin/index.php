@@ -48,7 +48,7 @@ if (isset($_SESSION['role']))
                       echo "$count";
                     ?>
                   </h2>
-                  <a href="listakta.php?viewakta=true" class="card-text text-decoration-none text-white">All Akta</a>
+                  <a href="listakta.php" class="card-text text-decoration-none text-white">All Akta</a>
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@ if (isset($_SESSION['role']))
                       echo "$count";
                     ?>
                   </h2>
-                  <a href="listakta.php?totalajb=true" class="card-text text-decoration-none text-white">List AJB</a>
+                  <a href="listajb.php" class="card-text text-decoration-none text-white">List AJB</a>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ if (isset($_SESSION['role']))
                       echo "$count";
                     ?>
                   </h2>
-                  <a href="listakta.php?totalhibah=true" class="card-text text-decoration-none text-white">List Hibah</a>
+                  <a href="listhibah.php" class="card-text text-decoration-none text-white">List Hibah</a>
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@ if (isset($_SESSION['role']))
                       echo "$count";
                     ?>
                   </h2>
-                  <a href="listakta.php?totalaphb=true" class="card-text text-decoration-none text-white">List APHB</a>
+                  <a href="listaphb.php" class="card-text text-decoration-none text-white">List APHB</a>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ if (isset($_SESSION['role']))
                       echo "$count";
                     ?>
                   </h2>
-                  <a href="listakta.php?totalapht=true" class="card-text text-decoration-none text-white">List APHT</a>
+                  <a href="listapht.php" class="card-text text-decoration-none text-white">List APHT</a>
                 </div>
               </div>
             </div>

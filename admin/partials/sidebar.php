@@ -22,8 +22,8 @@
         <i class="mdi mdi-database-plus menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="listakta.php?viewakta=true">
+    <li class="nav-item <?php if($page=='akta'){echo 'active';} ?>">
+      <a class="nav-link" href="listakta.php">
         <span class="menu-title">List Akta</span>
         <i class="mdi mdi-database menu-icon"></i>
       </a>
