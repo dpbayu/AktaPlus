@@ -2,6 +2,40 @@
 session_start();
 require "../include/db.php";
 
+// Add Admin Start
+if (isset($_POST['add-admin'])) {
+    // print_r($_POST);
+    $nik = $_POST['nik'];
+    $fullname = $_POST['fullname'];
+    $role = $_POST['role'];
+    $password = $_POST['password'];
+    $result = mysqli_query($db, "SELECT nik FROM user WHERE nik ='$nik'");
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>window.location.href='user.php?failed=NIK already exist!';</script>";                    
+        return false;
+    }
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $query = mysqli_query($db, "INSERT INTO user (nik, fullname, role, password) VALUES ('$nik', '$fullname', '$role', '$password')");
+    if ($query) {
+        echo "<script>window.location.href='user.php?message=Sucess added!';</script>";                    
+    }
+    else {
+        echo "<script>window.location.href='user.php?message=Failed added!';</script>";                    
+    }
+}
+// Add Admin End
+
+// Delete Admin Start\
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $query = "DELETE FROM user WHERE id = $id";
+    $run = mysqli_query($db,$query);
+    if ($run) {
+        echo "<script>window.location.href='user.php?message=Delete data success!';</script>";                    
+        }
+}
+// Delete Admin End
+
 // Update Profile Start
 if (isset($_POST['update'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);

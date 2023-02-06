@@ -23,15 +23,21 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="profile.php">
-        <span class="menu-title">Profile</span>
-        <i class="mdi mdi-account menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="message.php">
         <span class="menu-title">Message</span>
         <i class="mdi mdi-message menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="user.php">
+        <span class="menu-title">User</span>
+        <i class="mdi mdi-account-multiple menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="profile.php">
+        <span class="menu-title">Profile</span>
+        <i class="mdi mdi-account menu-icon"></i>
       </a>
     </li>
   </ul>
