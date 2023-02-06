@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>E-NOTE LOGIN</title>
+    <title>E-NOTE LOGIN | Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="admin/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -79,6 +79,8 @@ if (isset($_POST['login'])) {
                                 </div>
                                 <div class="text-center mt-4 font-weight-light"> Don't have an account? <a
                                         href="admin/register.php" class="text-primary">Create</a>
+                                <div class="text-center mt-4 font-weight-light"> Owner ? <a
+                                        href="owner.php" class="text-primary">Click here</a>
                                 </div>
                             </form>
                         </div>
