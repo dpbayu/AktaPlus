@@ -1,6 +1,10 @@
 <!-- PHP Start -->
 <?php
 session_start();
+if (isset($_SESSION["login"])) {
+    header("Location: admin/index.php");
+    exit;
+}
 require "include/db.php";
 if (isset($_POST['login'])) {
     $nik = mysqli_escape_string($db, $_POST['nik']);
@@ -17,6 +21,7 @@ if (isset($_POST['login'])) {
                     $_SESSION['user_profile'] = $row['user_profile'];
                     $_SESSION['password'] = $row['password'];
                     $_SESSION['role'] = $row['role'];
+                    $_SESSION["login"] = true;
                     header("Location: admin/index.php");
                     exit();
                 }
@@ -30,6 +35,7 @@ if (isset($_POST['login'])) {
 <html lang="en">
 
 <!-- Head Start -->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -79,9 +85,9 @@ if (isset($_POST['login'])) {
                                 </div>
                                 <div class="text-center mt-4 font-weight-light"> Don't have an account? <a
                                         href="admin/register.php" class="text-primary">Create</a>
-                                <div class="text-center mt-4 font-weight-light"> Owner ? <a
-                                        href="owner.php" class="text-primary">Click here</a>
-                                </div>
+                                    <div class="text-center mt-4 font-weight-light"> Owner ? <a href="owner.php"
+                                            class="text-primary">Click here</a>
+                                    </div>
                             </form>
                         </div>
                     </div>

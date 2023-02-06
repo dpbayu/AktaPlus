@@ -1,6 +1,10 @@
 <!-- PHP Start -->
 <?php
 session_start();
+if (isset($_SESSION["login"])) {
+    header("Location: owner/index.php");
+    exit;
+}
 require "include/db.php";
 if (isset($_POST['login'])) {
     $username = mysqli_escape_string($db, $_POST['username']);
@@ -17,6 +21,7 @@ if (isset($_POST['login'])) {
                     $_SESSION['admin_profile'] = $row['admin_profile'];
                     $_SESSION['password'] = $row['password'];
                     $_SESSION['role'] = $row['role'];
+                    $_SESSION["login"] = true;
                     header("Location: owner/index.php");
                     exit();
                 }

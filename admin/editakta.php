@@ -1,6 +1,10 @@
 <!-- PHP Start -->
 <?php
 session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: ../index.php");
+    exit;
+}
 require "../include/db.php";
 $page = 'akta';
 $data = mysqli_query($db, "SELECT * FROM akta WHERE id = '".$_GET['id']."'");
