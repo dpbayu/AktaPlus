@@ -2,6 +2,7 @@
 <?php
 session_start();
 require "../include/db.php";
+$page = 'akta';
 $data = mysqli_query($db, "SELECT * FROM akta WHERE id = '".$_GET['id']."'");
 $r = mysqli_fetch_array($data);
 $no_akta = $r['no_akta'];

@@ -2,6 +2,7 @@
 <?php
 session_start();
 require "../include/db.php";
+$page = 'akta';
 ?>
 <!-- PHP End -->
 

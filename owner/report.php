@@ -2,6 +2,7 @@
 <?php
 require "../include/db.php";
 require "function.php";
+$page = 'akta';
 ?>
 <!-- PHP End -->
 
