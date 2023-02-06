@@ -55,14 +55,14 @@ if (isset($_POST['add-akta'])) {
             move_uploaded_file($file_tmp, '../assets/file/'.$pdf_akta);
             $query = mysqli_query($db, "INSERT INTO akta (no_akta, type_akta, seller, buyer, no_hak, address, surface_area, transaction, certificate, pbb, njop, ssp, ssb, description, pdf_akta) VALUES ('$no_akta', '$type_akta', '$seller', '$buyer', '$no_hak', '$address', '$surface_area', '$transaction', '$certificate', '$pbb', '$njop', '$ssp', '$ssb', '$description', '$pdf_akta')");
             if ($query) {
-                echo "<script>window.location.href='listakta.php?viewakta=true';</script>";                    
+                echo "<script>window.location = 'listakta.php?message=Data successfuly added!'</script>";
             }
             else {
-                echo "<script>window.location.href='formakta.php';</script>";                    
+                echo "<script>window.location = 'listakta.php?message=Data failed added'</script>";
             }
         }
         else {
-            echo 'UKURAN FILE TERLALU BESAR!';
+            echo 'Size to big!';
         }
     }
 }

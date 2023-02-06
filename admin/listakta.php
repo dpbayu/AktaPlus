@@ -24,16 +24,6 @@ $page = 'akta';
             <!-- Sidebar End -->
             <div class="main-panel">
                 <!-- Content Start -->
-                <?php
-                    if (isset($_GET['message'])) {
-                        $msg = $_GET['message'];
-                        echo '
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>'.$msg.'</strong>
-                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-                        </div>';
-                    }
-                ?>
                 <div class="content-wrapper">
                     <div class="page-header">
                         <h3 class="page-title">
@@ -52,8 +42,9 @@ $page = 'akta';
                                 if (isset($_GET['message'])) {
                                     $msg = $_GET['message'];
                                     echo '
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <strong>'.$msg.'</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>';
                                 }
                                 ?>
@@ -63,30 +54,30 @@ $page = 'akta';
                                         <tr>
                                             <th>No</th>
                                             <th>No Akta</th>
+                                            <th>Date</th>
                                             <th>Type Akta</th>
                                             <th>Seller</th>
                                             <th>Buyer</th>
                                             <th>Address</th>
-                                            <th>File</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $q = "SELECT * FROM akta";
+                                        $q = "SELECT * FROM akta ORDER BY id DESC";
                                         $r = mysqli_query($db,$q);
                                         $c = 1;
                                         while ($akta = mysqli_fetch_array($r)) {
-                                            if ($akta['type_akta']=='AJB') {
+                                            if ($akta['type_akta'] == 'AJB') {
                                         ?>
                                         <tr>
                                             <td><?= $c ?></td>
                                             <td><?= $akta["no_akta"] ?></td>
+                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
                                             <td><?= $akta["type_akta"] ?></td>
                                             <td><?= $akta["seller"] ?></td>
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
-                                            <td><?= $akta["pdf_akta"] ?></td>
                                             <td>
                                                 <a href="editakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-success btn-rounded btn-icon"
@@ -113,16 +104,16 @@ $page = 'akta';
                                         </tr>
                                         <?php
                                         $c++;
-                                        } else if ($akta['type_akta']=='Hibah') {
+                                        } else if ($akta['type_akta'] == 'Hibah') {
                                         ?>
                                         <tr>
                                             <td><?= $c ?></td>
                                             <td><?= $akta["no_akta"] ?></td>
+                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
                                             <td><?= $akta["type_akta"] ?></td>
                                             <td><?= $akta["seller"] ?></td>
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
-                                            <td><?= $akta["pdf_akta"] ?></td>
                                             <td>
                                                 <a href="editakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-success btn-rounded btn-icon"
@@ -149,16 +140,16 @@ $page = 'akta';
                                         </tr>
                                         <?php
                                         $c++;
-                                        } else if ($akta['type_akta']=='APHB') {
+                                        } else if ($akta['type_akta'] == 'APHB') {
                                         ?>
                                         <tr>
                                             <td><?= $c ?></td>
                                             <td><?= $akta["no_akta"] ?></td>
+                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
                                             <td><?= $akta["type_akta"] ?></td>
                                             <td><?= $akta["seller"] ?></td>
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
-                                            <td><?= $akta["pdf_akta"] ?></td>
                                             <td>
                                                 <a href="editakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-success btn-rounded btn-icon"
@@ -185,16 +176,16 @@ $page = 'akta';
                                         </tr>
                                         <?php
                                         $c++;
-                                        } else if ($akta['type_akta']=='APHT') {
+                                        } else if ($akta['type_akta'] == 'APHT') {
                                         ?>
                                         <tr>
                                             <td><?= $c ?></td>
                                             <td><?= $akta["no_akta"] ?></td>
+                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
                                             <td><?= $akta["type_akta"] ?></td>
                                             <td><?= $akta["seller"] ?></td>
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
-                                            <td><?= $akta["pdf_akta"] ?></td>
                                             <td>
                                                 <a href="editakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-success btn-rounded btn-icon"

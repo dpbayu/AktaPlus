@@ -205,10 +205,10 @@ $description = $r['description'];
                 pdf_akta = '".$pdf_akta."'
                 WHERE id = '".$_GET['id']."'");
                 if ($update) {
-                    echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
+                    echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
                     exit();                
                 } else {
-                    echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
+                    echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
                     exit();                   
                 }
             }
@@ -230,10 +230,10 @@ $description = $r['description'];
             description = '".$description."'
             WHERE id = '".$_GET['id']."'");
             if ($update) {
-                echo "<script>window.location.href='listakta.php?viewakta=true';</script>";
+                echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
                 exit();                          
             } else {
-                echo "<script>window.location = 'listakta.php?viewakta=true'</script>";
+                echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
                 exit();                          
             }
         }
