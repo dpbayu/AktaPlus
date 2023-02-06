@@ -69,11 +69,6 @@ $page = 'akta';
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
                                             <td>
-                                                <a href="editakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-tooltip-edit"></i>
-                                                </a>
                                                 <a href="detailakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-info btn-rounded btn-icon"
                                                     style="padding-top: 12px;">
@@ -99,11 +94,6 @@ $page = 'akta';
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
                                             <td>
-                                                <a href="editakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-tooltip-edit"></i>
-                                                </a>
                                                 <a href="detailakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-info btn-rounded btn-icon"
                                                     style="padding-top: 12px;">
@@ -129,11 +119,6 @@ $page = 'akta';
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
                                             <td>
-                                                <a href="editakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-tooltip-edit"></i>
-                                                </a>
                                                 <a href="detailakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-info btn-rounded btn-icon"
                                                     style="padding-top: 12px;">
@@ -159,11 +144,6 @@ $page = 'akta';
                                             <td><?= $akta["buyer"] ?></td>
                                             <td><?= $akta["address"] ?></td>
                                             <td>
-                                                <a href="editakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-tooltip-edit"></i>
-                                                </a>
                                                 <a href="detailakta.php?id=<?= $akta['id'] ?>"
                                                     class="btn btn-inverse-info btn-rounded btn-icon"
                                                     style="padding-top: 12px;">

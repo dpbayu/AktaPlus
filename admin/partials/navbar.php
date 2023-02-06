@@ -19,6 +19,13 @@
           </div>
         </a>
       </li>
+      <div class="dropdown position-relative">
+        <button class="btn btn-transparent p-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="mdi mdi-message"></i>
+          <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
+        </button>
+        <ul class="dropdown-menu px-3 position-absolute"></ul>
+      </div>
       <li class="nav-item d-none d-lg-block full-screen-link">
         <a class="nav-link">
           <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
