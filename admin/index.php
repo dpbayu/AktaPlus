@@ -138,55 +138,6 @@ if (isset($_SESSION['role']))
         </div>
         <!-- Content End -->
         <!-- JS Start -->
-        <script type="text/javascript">
-          $(document).ready(function () {
-            // updating the view with notifications using ajax
-            function load_notification(view = '') {
-              $.ajax({
-                url: "fetch.php",
-                method: "POST",
-                data: {
-                  view: view
-                },
-                dataType: "json",
-                success: function (data) {
-                  $('.dropdown-menu').html(data.notification);
-                  if (data.unseen_notification > 0) {
-                    $('.count').html(data.unseen_notification);
-                  }
-                }
-              });
-            }
-
-            load_notification();
-            // submit form and get new records
-            $('#comment_form').on('submit', function (event) {
-              event.preventDefault();
-              if ($('#subject').val() != '' && $('#comment').val() != '') {
-                var form_data = $(this).serialize();
-                $.ajax({
-                  url: "insert.php",
-                  method: "POST",
-                  data: form_data,
-                  success: function (data) {
-                    $('#comment_form')[0].reset();
-                    load_notification();
-                  }
-                });
-              } else {
-                alert("Subject & Comments Harus Diisi");
-              }
-            });
-            // load new notifications
-            $(document).on('click', '.dropdown-toggle', function () {
-              $('.count').html('');
-              load_notification('yes');
-            });
-            setInterval(function () {
-              load_notification();
-            }, 5000);
-          });
-        </script>
         <!-- JS End -->
         <!-- Footer Start -->
         <?php require "partials/footer.php" ?>
