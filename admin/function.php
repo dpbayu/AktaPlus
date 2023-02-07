@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect("localhost","root","","e-note");
+require("../include/db.php");
 
 // Query Start
 function query($query) {
