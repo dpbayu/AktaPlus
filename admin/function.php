@@ -14,7 +14,7 @@ function query($query) {
 // Query End
 
 // Add Data Start
-function tambah ($data) {
+function add ($data) {
     global $db;
     $no_akta = $data['no_akta'];
     $type_akta = $data['type_akta'];
@@ -37,7 +37,7 @@ function tambah ($data) {
     $ukuran = $_FILES['pdf_akta']['size'];
     $file_tmp = $_FILES['pdf_akta']['tmp_name'];
     if (in_array($extention, $extention_file) === true) {
-        if ($ukuran < 1044070) { 
+        if ($ukuran < 2000000) { 
             move_uploaded_file($file_tmp, '../assets/file/'.$pdf_akta);
             $query = mysqli_query($db, "INSERT INTO akta (no_akta, type_akta, seller, buyer, no_hak, address, surface_area, transaction, certificate, pbb, njop, ssp, ssb, description, pdf_akta) VALUES ('$no_akta', '$type_akta', '$seller', '$buyer', '$no_hak', '$address', '$surface_area', '$transaction', '$certificate', '$pbb', '$njop', '$ssp', '$ssb', '$description', '$pdf_akta')");
             if ($query) {

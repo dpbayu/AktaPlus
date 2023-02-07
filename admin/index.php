@@ -5,7 +5,7 @@ if (!isset($_SESSION["login"])) {
   header("Location: ../index.php");
   exit;
 }
-require "../include/db.php";
+require "function.php";
 if (isset($_SESSION['role']))
 ?>
 <!-- PHP End -->
