@@ -16,7 +16,7 @@
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item <?php if($page=='form'){echo 'active';} ?>">
       <a class="nav-link" href="formakta.php">
         <span class="menu-title">Form Akta</span>
         <i class="mdi mdi-database-plus menu-icon"></i>

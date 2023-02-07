@@ -1,7 +1,7 @@
 <?php
 $db = mysqli_connect("localhost","root","","e-note");
 
-// Function Query Start
+// Query Start
 function query($query) {
     global $db;
     $result = mysqli_query($db, $query);
@@ -11,7 +11,7 @@ function query($query) {
     }
     return $rows;
 }
-// Function Query End
+// Query End
 
 // Register Start
 if (isset($_POST['register'])) {
@@ -36,6 +36,7 @@ if (isset($_POST['register'])) {
 }
 // Register End
 
+// Add Data Start
 function tambah ($data) {
     global $db;
     $no_akta = $data['no_akta'];
@@ -74,8 +75,55 @@ function tambah ($data) {
         }
     }
 }
-
 // Add data End
+
+// Edit Data Start
+function edit ($data) {
+    global $db;
+    $no_akta = $data['no_akta'];
+    $type_akta = $data['type_akta'];
+    $seller = $data['seller'];
+    $buyer = $data['buyer'];
+    $no_hak = $data['no_hak'];
+    $address = $data['address'];
+    $surface_area = $data['surface_area'];
+    $transaction = $data['transaction'];
+    $certificate = $data['certificate'];
+    $pbb = $data['pbb'];
+    $njop = $data['njop'];
+    $ssp = $data['ssp'];
+    $ssb = $data['ssb'];
+    $description = $data['description'];
+    $pdf_akta = $_FILES['pdf_akta']['name'];
+    $extention_file	= array('pdf','docx');
+    $text = explode('.', $pdf_akta);
+    $extention = strtolower(end($text));
+    $ukuran = $_FILES['pdf_akta']['size'];
+    $file_tmp = $_FILES['pdf_akta']['tmp_name'];
+    if (in_array($extention, $extention_file) === true) {
+        if ($ukuran < 1044070) {
+            move_uploaded_file($file_tmp, '../assets/file/'.$pdf_akta);
+            $query = mysqli_query($db, "UPDATE akta SET no_akta = '".$no_akta."', type_akta = '".$type_akta."', seller = '".$seller."', buyer = '".$buyer."', no_hak = '".$no_hak."', address = '".$address."', surface_area = '".$surface_area."', transaction = '".$transaction."', certificate = '".$certificate."', pbb = '".$pbb."', njop = '".$njop."', ssp = '".$ssp."', ssb = '".$ssb."', description = '".$description."', pdf_akta = '".$pdf_akta."' WHERE id = '".$_GET['id']."'");
+            if ($query) {
+                echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
+                exit();                
+            } else {
+                echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
+                exit();                   
+            }
+        }
+    }  else {
+        $query = mysqli_query($db, "UPDATE akta SET no_akta = '".$no_akta."', type_akta = '".$type_akta."', seller = '".$seller."', buyer = '".$buyer."', no_hak = '".$no_hak."', address = '".$address."', surface_area = '".$surface_area."', transaction = '".$transaction."', certificate = '".$certificate."', pbb = '".$pbb."', njop = '".$njop."', ssp = '".$ssp."', ssb = '".$ssb."', description = '".$description."' WHERE id = '".$_GET['id']."'");
+        if ($query) {
+            echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
+            exit();                          
+        } else {
+            echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
+            exit();                          
+        }
+    }
+}
+// Edit data End
 
 // Update Profile Start
 if (isset($_POST['update'])) {
