@@ -126,10 +126,11 @@ function edit ($data) {
 // Edit data End
 
 // Update Profile Start
-if (isset($_POST['update'])) {
-    $nik = mysqli_real_escape_string($db, $_POST['nik']);
-    $fullname = mysqli_real_escape_string($db, $_POST['fullname']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+function update($data) {
+    global $db;
+    $nik = mysqli_real_escape_string($db, $data['nik']);
+    $fullname = mysqli_real_escape_string($db, $data['fullname']);
+    $password = mysqli_real_escape_string($db, $data['password']);
     $user_profile = $_FILES['profilepic']['name'];
     $imgtemp = $_FILES['profilepic']['tmp_name'];
     if ($imgtemp=='') {
@@ -162,7 +163,7 @@ if (isset($_POST['update'])) {
                     session_unset();
                     session_destroy();
                     echo "<script>alert('Password success changed, please login again');
-                    document.location.href = 'login.php';
+                    document.location.href = '../index.php';
                     </script>";
                 } else {
                 echo "error";
