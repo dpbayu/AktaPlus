@@ -35,6 +35,12 @@
       </a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="owner.php">
+        <span class="menu-title">Owner</span>
+        <i class="mdi mdi-account-key menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="profile.php">
         <span class="menu-title">Profile</span>
         <i class="mdi mdi-account menu-icon"></i>

@@ -25,16 +25,27 @@ if (isset($_POST['add-admin'])) {
 }
 // Add Admin End
 
-// Delete Admin Start\
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $query = "DELETE FROM user WHERE id = $id";
-    $run = mysqli_query($db,$query);
-    if ($run) {
-        echo "<script>window.location.href='user.php?message=Delete data success!';</script>";                    
-        }
+// Add Owner Start
+if (isset($_POST['add-owner'])) {
+    // print_r($_POST);
+    $username = $_POST['username'];
+    $role = $_POST['role'];
+    $password = $_POST['password'];
+    $result = mysqli_query($db, "SELECT username FROM owner WHERE username ='$username'");
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>window.location.href='owner.php?failed=Username already exist!';</script>";                    
+        return false;
+    }
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $query = mysqli_query($db, "INSERT INTO owner (username, role, password) VALUES ('$username', '$role', '$password')");
+    if ($query) {
+        echo "<script>window.location.href='owner.php?message=Sucess added!';</script>";                    
+    }
+    else {
+        echo "<script>window.location.href='owner.php?message=Failed added!';</script>";                    
+    }
 }
-// Delete Admin End
+// Add Owner End
 
 // Update Profile Start
 if (isset($_POST['update'])) {

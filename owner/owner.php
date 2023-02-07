@@ -31,8 +31,8 @@ require "../include/db.php";
                     <div class="page-header">
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white me-2">
-                                <i class="mdi mdi-account-multiple"></i>
-                            </span>Add Admin
+                                <i class="mdi mdi-account-key"></i>
+                            </span>Add Owner
                         </h3>
                     </div>
                     <div class="row d-flex justify-content-between bg-white">
@@ -60,12 +60,8 @@ require "../include/db.php";
                             <form role="form" action="function.php" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>NIK</label>
-                                        <input type="text" class="form-control" name="nik" placeholder="NIK">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Fullname</label>
-                                        <input type="text" class="form-control" name="fullname" placeholder="Fullname">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" name="username" placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>
@@ -73,14 +69,14 @@ require "../include/db.php";
                                             placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <label for="role">Role</label>
-                                        <select class="form-control" style="height: 50px;" id="role" name="role">
-                                            <option>Admin</option>
+                                        <label for="TypeAkta">Type Akta</label>
+                                        <select class="form-control" style="height: 50px;" id="TypeAkta" name="role">
+                                            <option>Owner</option>
                                         </select>
                                     </div>
                                 </div>
-                                <button type="submit" name="add-admin" class="btn btn-primary">Add
-                                    Admin</button>
+                                <button type="submit" name="add-owner" class="btn btn-primary">Add
+                                    Owner</button>
                             </form>
                         </div>
                         <div class="col-md-7 py-3">
@@ -88,28 +84,26 @@ require "../include/db.php";
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">NIK</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col">Profile</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $q = "SELECT * FROM user";
+                                    $q = "SELECT * FROM owner";
                                     $r = mysqli_query($db,$q);
                                     $c = 1;
-                                    while ($user = mysqli_fetch_array($r)) {
+                                    while ($owner = mysqli_fetch_array($r)) {
                                     ?>
                                     <tr style="width: fit-content;">
                                         <td><?= $c ?></td>
-                                        <td><?= $user['nik'] ?></td>
-                                        <td><?= $user['fullname'] ?></td>
+                                        <td><?= $owner['username'] ?></td>
                                         <td><img style="height: 75px; width:75px;"
-                                                src="../assets/img/<?= $user['user_profile'] ?>">
+                                                src="assets/images/<?= $owner['admin_profile'] ?>">
                                         </td>
                                         <td>
-                                            <a class="text-decoration-none" href="delete-admin.php?id=<?= $user["id"]; ?>"
+                                            <a class="text-decoration-none" href="delete-owner.php?id=<?= $owner["id"]; ?>"
                                                 onclick="return confirm('Are you sure?');">Hapus</a>
                                         </td>
                                     </tr>
