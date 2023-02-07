@@ -5,24 +5,21 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-require "../include/db.php";
-$page = 'akta';
-$data = mysqli_query($db, "SELECT * FROM akta WHERE id = '".$_GET['id']."'");
-$r = mysqli_fetch_array($data);
-$no_akta = $r['no_akta'];
-$type_akta = $r['type_akta'];
-$seller = $r['seller'];
-$buyer = $r['buyer'];
-$no_hak = $r['no_hak'];
-$address = $r['address'];
-$surface_area = $r['surface_area'];
-$transaction = $r['transaction'];
-$certificate = $r['certificate'];
-$pbb = $r['pbb'];
-$njop = $r['njop'];
-$ssp = $r['ssp'];
-$ssb = $r['ssb'];
-$description = $r['description'];
+require "function.php";
+$page = 'form';
+$id = $_GET["id"];
+$akta = query("SELECT * FROM akta WHERE id = $id")[0];
+if(isset($_POST["submit"])) {
+    if(edit($_POST) > 0) {
+        echo "<script>alert('data berhasil diubah!');
+                document.location.href = 'listakta.php';
+                </script>";
+    } else {
+        echo "<script>alert('data gagal diubah!');
+                document.location.href = 'listakta.php';
+                </script>";    
+    }
+}
 ?>
 <!-- PHP End -->
 
@@ -56,100 +53,102 @@ $description = $r['description'];
                         <div class="card">
                             <div class="card-body">
                                 <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="<?= $akta["id"]; ?>">
                                     <div class="d-flex justify-content-evenly gap-5">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="NoAkta">No Akta</label>
                                                 <input type="text" class="form-control" id="NoAkta" name="no_akta"
-                                                    value="<?= $no_akta ?>">
+                                                    value="<?= $akta["no_akta"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="TypeAkta">Type Akta</label>
                                                 <select class="form-control" style="height: 50px;" id="TypeAkta"
                                                     name="type_akta">
                                                     <option value="AJB"
-                                                        <?php if($type_akta == "AJB") echo "selected" ?>>AJB</option>
+                                                        <?php if($akta == "AJB") echo "selected" ?>>AJB
+                                                    </option>
                                                     <option value="Hibah"
-                                                        <?php if($type_akta == "Hibah") echo "selected" ?>>Hibah
+                                                        <?php if($akta == "Hibah") echo "selected" ?>>Hibah
                                                     </option>
                                                     <option value="APHT"
-                                                        <?php if($type_akta == "APHT") echo "selected" ?>>APHT</option>
+                                                        <?php if($akta == "APHT") echo "selected" ?>>APHT</option>
                                                     <option value="APHB"
-                                                        <?php if($type_akta == "APHB") echo "selected" ?>>APHB</option>
+                                                        <?php if($akta == "APHB") echo "selected" ?>>APHB</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="Seller">Seller</label>
                                                 <input type="text" class="form-control" id="Seller" name="seller"
-                                                    value="<?= $seller ?>">
+                                                    value="<?= $akta["seller"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="buyer">Buyer</label>
                                                 <input type="text" class="form-control" id="buyer" name="buyer"
-                                                    value="<?= $buyer ?>">
+                                                    value="<?= $akta["buyer"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="NoHAK">No HAK</label>
                                                 <input type="text" class="form-control" id="NoHAK" name="no_hak"
-                                                    value="<?= $no_hak ?>">
+                                                    value="<?= $akta["no_hak"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Address">Address</label>
                                                 <input type="text" class="form-control" id="Address" name="address"
-                                                    value="<?= $address ?>">
+                                                    value="<?= $akta["address"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="SSB">SSB</label>
                                                 <input type="text" class="form-control" id="SSB" name="ssb"
-                                                    value="<?= $ssb ?>">
+                                                    value="<?= $akta["ssb"] ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="SurfaceArea">Surface Area</label>
                                                 <input type="text" class="form-control" id="SurfaceArea"
-                                                    name="surface_area" value="<?= $surface_area ?>">
+                                                    name="surface_area" value="<?= $akta["surface_area"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Transaction">Transaction</label>
                                                 <input type="text" class="form-control" id="Transaction"
-                                                    name="transaction" value="<?= $transaction ?>">
+                                                    name="transaction" value="<?= $akta["transaction"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Certificate">Certificate</label>
                                                 <input type="text" class="form-control" id="Certificate"
-                                                    name="certificate" value="<?= $certificate ?>">
+                                                    name="certificate" value="<?= $akta["certificate"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="PBB">PBB</label>
                                                 <input type="text" class="form-control" id="PBB" name="pbb"
-                                                    value="<?= $pbb ?>">
+                                                    value="<?= $akta["pbb"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="NJOP">NJOP</label>
                                                 <input type="text" class="form-control" id="NJOP" name="njop"
-                                                    value="<?= $njop ?>">
+                                                    value="<?= $akta["njop"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Description">SSP</label>
                                                 <input type="text" class="form-control" id="SSP" name="ssp"
-                                                    value="<?= $ssp ?>">
+                                                    value="<?= $akta["ssp"] ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Description">Description</label>
                                                 <input type="text" class="form-control" id="Description"
-                                                    name="description" value="<?= $description ?>">
+                                                    name="description" value="<?= $akta["description"] ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group" style="margin: 0 67px;">
                                         <label for="pdf">Upload file</label>
-                                        <input type="hidden" class="form-control" name="id" value="<?= $pdf_akta ?>">
+                                        <input type="hidden" class="form-control" name="id" value="<?= $akta["pdf_akta"] ?>">
                                         <input type="file" class="form-control file-upload-info" id="pdf"
                                             name="pdf_akta">
                                     </div>
                                     <div class="mt-5">
-                                        <button type="submit" name="update"
+                                        <button type="submit" name="submit"
                                             class="btn btn-gradient-primary me-2">Submit</button>
                                         <input class="btn btn-light" type="button" onclick="history.back()" value="Back">
                                     </div>
@@ -165,86 +164,6 @@ $description = $r['description'];
             </div>
         </div>
     </div>
-
-    <!-- PHP Start -->
-    <?php
-    if (isset($_POST['update'])) {
-        $no_akta = $_POST['no_akta'];
-        $type_akta = $_POST['type_akta'];
-        $seller = $_POST['seller'];
-        $buyer = $_POST['buyer'];
-        $no_hak = $_POST['no_hak'];
-        $address = $_POST['address'];
-        $surface_area = $_POST['surface_area'];
-        $transaction = $_POST['transaction'];
-        $certificate = $_POST['certificate'];
-        $pbb = $_POST['pbb'];
-        $njop = $_POST['njop'];
-        $ssp = $_POST['ssp'];
-        $ssb = $_POST['ssb'];
-        $description = $_POST['description'];
-        $pdf_akta = $_FILES['pdf_akta']['name'];
-        $extention_file	= array('pdf','docx');
-        $text = explode('.', $pdf_akta);
-        $extention = strtolower(end($text));
-        $ukuran = $_FILES['pdf_akta']['size'];
-        $file_tmp = $_FILES['pdf_akta']['tmp_name'];
-        if (in_array($extention, $extention_file) === true) {
-            if ($ukuran < 1044070) {
-                move_uploaded_file($file_tmp, '../assets/file/'.$pdf_akta);
-                $update = mysqli_query($db, "UPDATE akta SET
-                no_akta = '".$no_akta."',
-                type_akta = '".$type_akta."',
-                seller = '".$seller."',
-                buyer = '".$buyer."',
-                no_hak = '".$no_hak."',
-                address = '".$address."',
-                surface_area = '".$surface_area."',
-                transaction = '".$transaction."',
-                certificate = '".$certificate."',
-                pbb = '".$pbb."',
-                njop = '".$njop."',
-                ssp = '".$ssp."',
-                ssb = '".$ssb."',
-                description = '".$description."',
-                pdf_akta = '".$pdf_akta."'
-                WHERE id = '".$_GET['id']."'");
-                if ($update) {
-                    echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
-                    exit();                
-                } else {
-                    echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
-                    exit();                   
-                }
-            }
-        }  else {
-            $update = mysqli_query($db, "UPDATE akta SET
-            no_akta = '".$no_akta."',
-            type_akta = '".$type_akta."',
-            seller = '".$seller."',
-            buyer = '".$buyer."',
-            no_hak = '".$no_hak."',
-            address = '".$address."',
-            surface_area = '".$surface_area."',
-            transaction = '".$transaction."',
-            certificate = '".$certificate."',
-            pbb = '".$pbb."',
-            njop = '".$njop."',
-            ssp = '".$ssp."',
-            ssb = '".$ssb."',
-            description = '".$description."'
-            WHERE id = '".$_GET['id']."'");
-            if ($update) {
-                echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
-                exit();                          
-            } else {
-                echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
-                exit();                          
-            }
-        }
-    }
-?>
-<!-- PHP End -->
 </body>
 
 </html>

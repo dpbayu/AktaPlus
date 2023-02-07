@@ -1,49 +1,35 @@
 <?php
-session_start();
-require "../include/db.php";
+$db = mysqli_connect("localhost","root","","e-note");
 
-if (isset($_POST['register'])) {
-    // print_r($_POST);
-    $nik = $_POST['nik'];
-    $fullname = $_POST['fullname'];
-    $role = $_POST['role'];
-    $password = $_POST['password'];
-    $result = mysqli_query($db, "SELECT nik FROM user WHERE nik ='$nik'");
-    if (mysqli_fetch_assoc($result)) {
-        echo "<script>alert('nik sudah terdaftar!')</script>";
-        return false;
+// Query Start
+function query($query) {
+    global $db;
+    $result = mysqli_query($db, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
     }
-    $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = mysqli_query($db, "INSERT INTO user (nik, fullname, role, password) VALUES ('$nik', '$fullname', '$role', '$password')");
-    if ($query) {
-        echo "<script>window.location.href='../index.php';</script>";                    
-    }
-    else {
-        echo "<script>window.location.href='../admin/register?message=Register failed';</script>";                    
-    }
+    return $rows;
 }
+// Query End
 
-// Login Start
-
-// Login End
-
-// Add data Start
-if (isset($_POST['add-akta'])) {
-    // print_r($_POST);
-    $no_akta = $_POST['no_akta'];
-    $type_akta = $_POST['type_akta'];
-    $seller = $_POST['seller'];
-    $buyer = $_POST['buyer'];
-    $no_hak = $_POST['no_hak'];
-    $address = $_POST['address'];
-    $surface_area = $_POST['surface_area'];
-    $transaction = $_POST['transaction'];
-    $certificate = $_POST['certificate'];
-    $pbb = $_POST['pbb'];
-    $njop = $_POST['njop'];
-    $ssp = $_POST['ssp'];
-    $ssb = $_POST['ssb'];
-    $description = $_POST['description'];
+// Add Data Start
+function tambah ($data) {
+    global $db;
+    $no_akta = $data['no_akta'];
+    $type_akta = $data['type_akta'];
+    $seller = $data['seller'];
+    $buyer = $data['buyer'];
+    $no_hak = $data['no_hak'];
+    $address = $data['address'];
+    $surface_area = $data['surface_area'];
+    $transaction = $data['transaction'];
+    $certificate = $data['certificate'];
+    $pbb = $data['pbb'];
+    $njop = $data['njop'];
+    $ssp = $data['ssp'];
+    $ssb = $data['ssb'];
+    $description = $data['description'];
     $pdf_akta = $_FILES['pdf_akta']['name'];
     $extention_file	= array('pdf','docx');
     $text = explode('.', $pdf_akta);
@@ -68,11 +54,60 @@ if (isset($_POST['add-akta'])) {
 }
 // Add data End
 
+// Edit Data Start
+function edit ($data) {
+    global $db;
+    $no_akta = $data['no_akta'];
+    $type_akta = $data['type_akta'];
+    $seller = $data['seller'];
+    $buyer = $data['buyer'];
+    $no_hak = $data['no_hak'];
+    $address = $data['address'];
+    $surface_area = $data['surface_area'];
+    $transaction = $data['transaction'];
+    $certificate = $data['certificate'];
+    $pbb = $data['pbb'];
+    $njop = $data['njop'];
+    $ssp = $data['ssp'];
+    $ssb = $data['ssb'];
+    $description = $data['description'];
+    $pdf_akta = $_FILES['pdf_akta']['name'];
+    $extention_file	= array('pdf','docx');
+    $text = explode('.', $pdf_akta);
+    $extention = strtolower(end($text));
+    $ukuran = $_FILES['pdf_akta']['size'];
+    $file_tmp = $_FILES['pdf_akta']['tmp_name'];
+    if (in_array($extention, $extention_file) === true) {
+        if ($ukuran < 1044070) {
+            move_uploaded_file($file_tmp, '../assets/file/'.$pdf_akta);
+            $query = mysqli_query($db, "UPDATE akta SET no_akta = '".$no_akta."', type_akta = '".$type_akta."', seller = '".$seller."', buyer = '".$buyer."', no_hak = '".$no_hak."', address = '".$address."', surface_area = '".$surface_area."', transaction = '".$transaction."', certificate = '".$certificate."', pbb = '".$pbb."', njop = '".$njop."', ssp = '".$ssp."', ssb = '".$ssb."', description = '".$description."', pdf_akta = '".$pdf_akta."' WHERE id = '".$_GET['id']."'");
+            if ($query) {
+                echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
+                exit();                
+            } else {
+                echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
+                exit();                   
+            }
+        }
+    }  else {
+        $query = mysqli_query($db, "UPDATE akta SET no_akta = '".$no_akta."', type_akta = '".$type_akta."', seller = '".$seller."', buyer = '".$buyer."', no_hak = '".$no_hak."', address = '".$address."', surface_area = '".$surface_area."', transaction = '".$transaction."', certificate = '".$certificate."', pbb = '".$pbb."', njop = '".$njop."', ssp = '".$ssp."', ssb = '".$ssb."', description = '".$description."' WHERE id = '".$_GET['id']."'");
+        if ($query) {
+            echo "<script>window.location = 'listakta.php?message=Data successfuly update!'</script>";
+            exit();                          
+        } else {
+            echo "<script>window.location = 'listakta.php?message=Data failed update'</script>";
+            exit();                          
+        }
+    }
+}
+// Edit data End
+
 // Update Profile Start
-if (isset($_POST['update'])) {
-    $nik = mysqli_real_escape_string($db, $_POST['nik']);
-    $fullname = mysqli_real_escape_string($db, $_POST['fullname']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+function update($data) {
+    global $db;
+    $nik = mysqli_real_escape_string($db, $data['nik']);
+    $fullname = mysqli_real_escape_string($db, $data['fullname']);
+    $password = mysqli_real_escape_string($db, $data['password']);
     $user_profile = $_FILES['profilepic']['name'];
     $imgtemp = $_FILES['profilepic']['tmp_name'];
     if ($imgtemp=='') {
@@ -105,7 +140,7 @@ if (isset($_POST['update'])) {
                     session_unset();
                     session_destroy();
                     echo "<script>alert('Password success changed, please login again');
-                    document.location.href = 'login.php';
+                    document.location.href = '../index.php';
                     </script>";
                 } else {
                 echo "error";

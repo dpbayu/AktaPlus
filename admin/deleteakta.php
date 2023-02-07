@@ -8,7 +8,7 @@ if (!isset($_GET['id'])){
     $id = $_GET['id'];
     $sql = "DELETE FROM akta WHERE id = '$id'";
     if (mysqli_query($db, $sql)) {
-        header("Location: listakta.php?viewakta=true");
+        header("Location: listakta.php?message= Data success deleted");
         exit();
     } else {
         header("Location: listakta.php?message=Data failed delete");

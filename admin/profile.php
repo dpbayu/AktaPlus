@@ -5,7 +5,18 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-require "../include/db.php";
+require "function.php";
+if (isset($_POST["update"])) {
+    if (update($_POST) > 0) {
+        echo "<script>alert('Success update profile!');
+                document.location.href = 'profile.php';
+                </script>";
+    } else {
+        echo "<script>alert('Failed update profile!');
+                document.location.href = 'profile.php';
+                </script>";    
+    }
+}
 ?>
 <!-- PHP End -->
 
@@ -38,7 +49,7 @@ require "../include/db.php";
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
-                                <form class="forms-sample" action="function.php" method="POST"
+                                <form class="forms-sample" action="" method="POST"
                                     enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="NIK">NIK</label>
