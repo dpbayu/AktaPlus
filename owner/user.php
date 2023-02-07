@@ -5,7 +5,18 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../owner.php");
     exit;
 }
-require "../include/db.php";
+require "function.php";
+if (isset($_POST["submit"])) {
+    if (add_admin($_POST) > 0) {
+        echo "<script>alert('Success added!');
+                document.location.href = 'user.php';
+                </script>";
+    } else {
+        echo "<script>alert('Failed added!');
+                document.location.href = 'user.php';
+                </script>";    
+    }
+}
 ?>
 <!-- PHP End -->
 
@@ -57,7 +68,7 @@ require "../include/db.php";
                         }
                     ?>
                         <div class="col-md-5 py-3">
-                            <form role="form" action="function.php" method="POST">
+                            <form role="form" action="" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>NIK</label>
@@ -79,7 +90,7 @@ require "../include/db.php";
                                         </select>
                                     </div>
                                 </div>
-                                <button type="submit" name="add-admin" class="btn btn-primary">Add
+                                <button type="submit" name="submit" class="btn btn-primary">Add
                                     Admin</button>
                             </form>
                         </div>

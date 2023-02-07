@@ -1,14 +1,13 @@
 <?php
-session_start();
 require "../include/db.php";
 
 // Add Admin Start
-if (isset($_POST['add-admin'])) {
-    // print_r($_POST);
-    $nik = $_POST['nik'];
-    $fullname = $_POST['fullname'];
-    $role = $_POST['role'];
-    $password = $_POST['password'];
+function add_admin($data) {
+    global $db;
+    $nik = $data['nik'];
+    $fullname = $data['fullname'];
+    $role = $data['role'];
+    $password = $data['password'];
     $result = mysqli_query($db, "SELECT nik FROM user WHERE nik ='$nik'");
     if (mysqli_fetch_assoc($result)) {
         echo "<script>window.location.href='user.php?failed=NIK already exist!';</script>";                    
@@ -26,11 +25,11 @@ if (isset($_POST['add-admin'])) {
 // Add Admin End
 
 // Add Owner Start
-if (isset($_POST['add-owner'])) {
-    // print_r($_POST);
-    $username = $_POST['username'];
-    $role = $_POST['role'];
-    $password = $_POST['password'];
+function add_owner($data) {
+    global $db;
+    $username = $data['username'];
+    $role = $data['role'];
+    $password = $data['password'];
     $result = mysqli_query($db, "SELECT username FROM owner WHERE username ='$username'");
     if (mysqli_fetch_assoc($result)) {
         echo "<script>window.location.href='owner.php?failed=Username already exist!';</script>";                    
@@ -48,9 +47,10 @@ if (isset($_POST['add-owner'])) {
 // Add Owner End
 
 // Update Profile Start
-if (isset($_POST['update'])) {
-    $username = mysqli_real_escape_string($db, $_POST['username']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+function update($data) {
+    global $db;
+    $username = mysqli_real_escape_string($db, $data['username']);
+    $password = mysqli_real_escape_string($db, $data['password']);
     $admin_profile = $_FILES['profilepic']['name'];
     $imgtemp = $_FILES['profilepic']['tmp_name'];
     if ($imgtemp=='') {

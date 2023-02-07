@@ -8,11 +8,11 @@ if (!isset($_SESSION["login"])) {
 require "function.php";
 if (isset($_POST["update"])) {
     if (update($_POST) > 0) {
-        echo "<script>alert('data berhasil diubah!');
+        echo "<script>alert('Success update profile!');
                 document.location.href = 'profile.php';
                 </script>";
     } else {
-        echo "<script>alert('data gagal diubah!');
+        echo "<script>alert('Failed update profile!');
                 document.location.href = 'profile.php';
                 </script>";    
     }
