@@ -5,8 +5,8 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-require "../include/db.php";
 require "function.php";
+$aktas = query("SELECT * FROM akta ORDER BY id DESC");
 $page = 'akta';
 ?>
 <!-- PHP End -->
@@ -68,17 +68,12 @@ $page = 'akta';
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        $q = "SELECT * FROM akta ORDER BY id DESC";
-                                        $r = mysqli_query($db,$q);
-                                        $c = 1;
-                                        while ($akta = mysqli_fetch_array($r)) {
-                                            if ($akta['type_akta'] == 'AJB') {
-                                        ?>
+                                        <?php $i = 1; ?>
+                                        <?php foreach($aktas as $akta) : ?>
                                         <tr>
-                                            <td><?= $c ?></td>
+                                            <td><?= $i; ?></td>
                                             <td><?= $akta["no_akta"] ?></td>
-                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
+                                            <td><?= date("j F Y, l", strtotime($akta['created_at'])) ?></td>
                                             <td><?= $akta["type_akta"] ?></td>
                                             <td><?= $akta["seller"] ?></td>
                                             <td><?= $akta["buyer"] ?></td>
@@ -107,123 +102,10 @@ $page = 'akta';
                                                 </a>
                                             </td>
                                         </tr>
-                                        <?php
-                                        $c++;
-                                        } else if ($akta['type_akta'] == 'Hibah') {
-                                        ?>
-                                        <tr>
-                                            <td><?= $c ?></td>
-                                            <td><?= $akta["no_akta"] ?></td>
-                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
-                                            <td><?= $akta["type_akta"] ?></td>
-                                            <td><?= $akta["seller"] ?></td>
-                                            <td><?= $akta["buyer"] ?></td>
-                                            <td><?= $akta["address"] ?></td>
-                                            <td>
-                                                <a href="editakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-tooltip-edit"></i>
-                                                </a>
-                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-info btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-printer"></i>
-                                                </a>
-                                                <a href="viewpdf.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-primary btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-briefcase-download"></i>
-                                                </a>
-                                                <a onclick="return confirm('Are you sure delete this data ?')"
-                                                    href="deleteakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-danger btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        $c++;
-                                        } else if ($akta['type_akta'] == 'APHB') {
-                                        ?>
-                                        <tr>
-                                            <td><?= $c ?></td>
-                                            <td><?= $akta["no_akta"] ?></td>
-                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
-                                            <td><?= $akta["type_akta"] ?></td>
-                                            <td><?= $akta["seller"] ?></td>
-                                            <td><?= $akta["buyer"] ?></td>
-                                            <td><?= $akta["address"] ?></td>
-                                            <td>
-                                                <a href="editakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-tooltip-edit"></i>
-                                                </a>
-                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-info btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-printer"></i>
-                                                </a>
-                                                <a href="viewpdf.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-primary btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-briefcase-download"></i>
-                                                </a>
-                                                <a onclick="return confirm('Are you sure delete this data ?')"
-                                                    href="deleteakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-danger btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        $c++;
-                                        } else if ($akta['type_akta'] == 'APHT') {
-                                        ?>
-                                        <tr>
-                                            <td><?= $c ?></td>
-                                            <td><?= $akta["no_akta"] ?></td>
-                                            <td><?= date("j F Y l", strtotime($akta['created_at'])) ?></td>
-                                            <td><?= $akta["type_akta"] ?></td>
-                                            <td><?= $akta["seller"] ?></td>
-                                            <td><?= $akta["buyer"] ?></td>
-                                            <td><?= $akta["address"] ?></td>
-                                            <td>
-                                                <a href="editakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-success btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-tooltip-edit"></i>
-                                                </a>
-                                                <a href="detailakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-info btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-printer"></i>
-                                                </a>
-                                                <a href="viewpdf.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-primary btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-briefcase-download"></i>
-                                                </a>
-                                                <a onclick="return confirm('Are you sure delete this data ?')"
-                                                    href="deleteakta.php?id=<?= $akta['id'] ?>"
-                                                    class="btn btn-inverse-danger btn-rounded btn-icon"
-                                                    style="padding-top: 12px;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        $c++;
-                                        }
-                                        }
-                                        ?>
+                                        <?php $i++; ?>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
-                                <?php
-                                ?>
                             </div>
                         </div>
                     </div>

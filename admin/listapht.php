@@ -5,7 +5,6 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-require "../include/db.php";
 require "function.php";
 $page = 'akta';
 ?>
@@ -58,6 +57,7 @@ $page = 'akta';
                                         <tr>
                                             <th>No</th>
                                             <th>No Akta</th>
+                                            <th>Date</th>
                                             <th>Type Akta</th>
                                             <th>Seller</th>
                                             <th>Buyer</th>
@@ -68,7 +68,7 @@ $page = 'akta';
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $q = "SELECT * FROM akta WHERE type_akta = 'APHT'";
+                                            $q = "SELECT * FROM akta WHERE type_akta = 'APHT' ORDER BY id DESC";
                                             $r = mysqli_query($db,$q);
                                             $c = 1;
                                             while ($akta = mysqli_fetch_array($r)) {
@@ -77,6 +77,7 @@ $page = 'akta';
                                         <tr>
                                             <td><?= $c ?></td>
                                             <td><?= $akta["no_akta"] ?></td>
+                                            <td><?= date("j F Y, l", strtotime($akta['created_at'])) ?></td>
                                             <td><?= $akta["type_akta"] ?></td>
                                             <td><?= $akta["seller"] ?></td>
                                             <td><?= $akta["buyer"] ?></td>

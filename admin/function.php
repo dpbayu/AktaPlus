@@ -1,7 +1,19 @@
 <?php
-session_start();
-require "../include/db.php";
+$db = mysqli_connect("localhost","root","","e-note");
 
+// Function Query Start
+function query($query) {
+    global $db;
+    $result = mysqli_query($db, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+// Function Query End
+
+// Register Start
 if (isset($_POST['register'])) {
     // print_r($_POST);
     $nik = $_POST['nik'];
@@ -22,28 +34,24 @@ if (isset($_POST['register'])) {
         echo "<script>window.location.href='../admin/register?message=Register failed';</script>";                    
     }
 }
+// Register End
 
-// Login Start
-
-// Login End
-
-// Add data Start
-if (isset($_POST['add-akta'])) {
-    // print_r($_POST);
-    $no_akta = $_POST['no_akta'];
-    $type_akta = $_POST['type_akta'];
-    $seller = $_POST['seller'];
-    $buyer = $_POST['buyer'];
-    $no_hak = $_POST['no_hak'];
-    $address = $_POST['address'];
-    $surface_area = $_POST['surface_area'];
-    $transaction = $_POST['transaction'];
-    $certificate = $_POST['certificate'];
-    $pbb = $_POST['pbb'];
-    $njop = $_POST['njop'];
-    $ssp = $_POST['ssp'];
-    $ssb = $_POST['ssb'];
-    $description = $_POST['description'];
+function tambah ($data) {
+    global $db;
+    $no_akta = $data['no_akta'];
+    $type_akta = $data['type_akta'];
+    $seller = $data['seller'];
+    $buyer = $data['buyer'];
+    $no_hak = $data['no_hak'];
+    $address = $data['address'];
+    $surface_area = $data['surface_area'];
+    $transaction = $data['transaction'];
+    $certificate = $data['certificate'];
+    $pbb = $data['pbb'];
+    $njop = $data['njop'];
+    $ssp = $data['ssp'];
+    $ssb = $data['ssb'];
+    $description = $data['description'];
     $pdf_akta = $_FILES['pdf_akta']['name'];
     $extention_file	= array('pdf','docx');
     $text = explode('.', $pdf_akta);
@@ -66,6 +74,7 @@ if (isset($_POST['add-akta'])) {
         }
     }
 }
+
 // Add data End
 
 // Update Profile Start
