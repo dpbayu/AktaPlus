@@ -83,8 +83,6 @@ if (isset($_POST['login'])) {
                                         IN
                                     </button>
                                 </div>
-                                <div class="text-center mt-4 font-weight-light"> Don't have an account? <a
-                                        href="admin/register.php" class="text-primary">Create</a>
                                     <div class="text-center mt-4 font-weight-light"> Owner ? <a href="owner.php"
                                             class="text-primary">Click here</a>
                                     </div>
