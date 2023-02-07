@@ -1,11 +1,23 @@
 <!-- PHP Start -->
 <?php
 session_start();
+require "include/db.php";
+
+if (isset($_COOKIE["id"]) && isset($_COOKIE["key"])) {
+    $id = $_COOKIE["id"];
+    $key = $_COOKIE["key"];
+    $result = mysqli_query($db, "SELECT nik FROM user WHERE id = $id");
+    $row = mysqli_fetch_assoc($result);
+    if ($key === hash('sha256', $row['nik'])) {
+        $_SESSION['login'] = true;
+    }
+}
+
 if (isset($_SESSION["login"])) {
     header("Location: admin/index.php");
     exit;
 }
-require "include/db.php";
+
 if (isset($_POST['login'])) {
     $nik = mysqli_escape_string($db, $_POST['nik']);
     $password = mysqli_escape_string($db, $_POST['password']);
@@ -22,6 +34,10 @@ if (isset($_POST['login'])) {
                     $_SESSION['password'] = $row['password'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION["login"] = true;
+                    if (isset($_POST['remember'])) {
+                        setcookie('id',$row['id'], time()+60);
+                        setcookie('key',hash('sha256', $row['username']), time()+60);
+                    }
                     header("Location: admin/index.php");
                     exit();
                 }
@@ -64,8 +80,8 @@ if (isset($_POST['login'])) {
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
                             <!-- Notif Error Start -->
-                            <?php if(isset($error)) : ?>
-                            <p style="color: red; font-style: italic;">Username / password salah</p>
+                            <?php if (isset($error)) : ?>
+                            <p style="color: red; font-style: italic;">NIK / password salah</p>
                             <?php endif; ?>
                             <!-- Notif Error End -->
                             <form class="pt-3" action="" method="POST">
@@ -77,15 +93,19 @@ if (isset($_POST['login'])) {
                                     <input type="password" class="form-control form-control-lg" placeholder="Password"
                                         name="password">
                                 </div>
+                                <div class="input-group d-flex">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                                    <label for="remember" style="margin-top: -2px; margin-left: 10px;">Remember me</label>
+                                </div>
                                 <div class="d-flex justify-content-between">
                                     <button type="submit" name="login"
                                         class="mt-3 btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN
                                         IN
                                     </button>
                                 </div>
-                                    <div class="text-center mt-4 font-weight-light"> Owner ? <a href="owner.php"
-                                            class="text-primary">Click here</a>
-                                    </div>
+                                <div class="text-center mt-4 font-weight-light"> Owner ? <a href="owner.php"
+                                        class="text-primary">Click here</a>
+                                </div>
                             </form>
                         </div>
                     </div>
