@@ -53,7 +53,7 @@ if(isset($_POST["submit"])) {
                         <div class="card">
                             <div class="card-body">
                                 <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" name="id" value="<?= $akta["id"]; ?>">
+                                    <input type="hidden" name="id" value="<?= $akta["id"]; ?>">
                                     <div class="d-flex justify-content-evenly gap-5">
                                         <div class="col-md-5">
                                             <div class="form-group">
@@ -65,16 +65,21 @@ if(isset($_POST["submit"])) {
                                                 <label for="TypeAkta">Type Akta</label>
                                                 <select class="form-control" style="height: 50px;" id="TypeAkta"
                                                     name="type_akta">
-                                                    <option value="AJB"
-                                                        <?php if($akta == "AJB") echo "selected" ?>>AJB
+                                                    <option value="AJB" <?= $akta['type_akta'] == "AJB" ? "selected" : '' ?>>
+                                                        AJB
                                                     </option>
                                                     <option value="Hibah"
-                                                        <?php if($akta == "Hibah") echo "selected" ?>>Hibah
+                                                        <?= $akta['type_akta'] == "Hibah" ? "selected" : '' ?>>
+                                                        Hibah
                                                     </option>
                                                     <option value="APHT"
-                                                        <?php if($akta == "APHT") echo "selected" ?>>APHT</option>
+                                                        <?= $akta['type_akta'] == "APHT" ? "selected" : '' ?>>
+                                                        APHT
+                                                    </option>
                                                     <option value="APHB"
-                                                        <?php if($akta == "APHB") echo "selected" ?>>APHB</option>
+                                                        <?= $akta['type_akta'] == "APHB" ? "selected" : '' ?>>
+                                                        APHB
+                                                    </option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -143,14 +148,16 @@ if(isset($_POST["submit"])) {
                                     </div>
                                     <div class="form-group" style="margin: 0 67px;">
                                         <label for="pdf">Upload file</label>
-                                        <input type="hidden" class="form-control" name="id" value="<?= $akta["pdf_akta"] ?>">
+                                        <input type="hidden" class="form-control" name="id"
+                                            value="<?= $akta["pdf_akta"] ?>">
                                         <input type="file" class="form-control file-upload-info" id="pdf"
                                             name="pdf_akta">
                                     </div>
                                     <div class="mt-5">
                                         <button type="submit" name="submit"
                                             class="btn btn-gradient-primary me-2">Submit</button>
-                                        <input class="btn btn-light" type="button" onclick="history.back()" value="Back">
+                                        <input class="btn btn-light" type="button" onclick="history.back()"
+                                            value="Back">
                                     </div>
                                 </form>
                             </div>
