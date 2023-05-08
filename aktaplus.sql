@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2023 at 01:32 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: May 08, 2023 at 07:16 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `e-note`
+-- Database: `aktaplus`
 --
 
 -- --------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `akta` (
   `description` varchar(255) NOT NULL,
   `pdf_akta` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `akta`
@@ -67,7 +67,7 @@ CREATE TABLE `comments` (
   `comment_subject` varchar(255) NOT NULL,
   `comment_text` text NOT NULL,
   `comment_status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -81,15 +81,15 @@ CREATE TABLE `owner` (
   `admin_profile` text NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `owner`
 --
 
 INSERT INTO `owner` (`id`, `username`, `admin_profile`, `password`, `role`) VALUES
-(1, 'Bayudp', 'Antony.jpeg', '$2y$10$E3dMqFV3OqammYcgXsdJIOlbNXgKhdK9IoX1yLiL6mXRpXbzH3BSW', 'Owner'),
-(6, 'Syifa', 'Tzuyu 4.jpg', '$2y$10$rCYmIqG80zb2BcJ6SHcrbu2CduWuIvHkTsmAY94RH4K.17WHWf.zG', 'Owner');
+(1, 'Dian', 'Antony.jpeg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner'),
+(6, 'Seprilla', 'Tzuyu 4.jpg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner');
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ CREATE TABLE `user` (
   `fullname` varchar(255) NOT NULL,
   `user_profile` text NOT NULL,
   `role` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`

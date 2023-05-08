@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "e-note";
+$database = "aktaPlus";
 $username = "root";
 $password = "";
 $db = mysqli_connect($servername, $username, $password, $database); // membuat koneksi
