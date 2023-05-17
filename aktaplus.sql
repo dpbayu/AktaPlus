@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 07:16 PM
+-- Generation Time: May 17, 2023 at 02:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -88,7 +88,7 @@ CREATE TABLE `owner` (
 --
 
 INSERT INTO `owner` (`id`, `username`, `admin_profile`, `password`, `role`) VALUES
-(1, 'Dian', 'Antony.jpeg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner'),
+(1, 'Dwi', 'Antony.jpeg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner'),
 (6, 'Seprilla', 'Tzuyu 4.jpg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner');
 
 -- --------------------------------------------------------
