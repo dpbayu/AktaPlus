@@ -39,8 +39,14 @@ $page = 'akta';
                             </span>Detail Akta
                         </h3>
                     </div>
-                    <div style="text-align:right; margin-bottom: 10px;">
-                        <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
+                    <div class="d-flex gap-5 w-100 justify-content-end align-items-center">
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="text-decoration-none text-dark" href="javascript:history.back()">Back</a>
+                        </div>
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="no-print btn btn-gradient-dark"
+                                href="javascript:printDiv('print-area-1');">Print</a>
+                        </div>
                     </div>
                     <div id="print-area-1" class="print-area">
                         <div class="row">
@@ -73,14 +79,15 @@ $page = 'akta';
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
+                                            <?php
                                         $q = "SELECT * FROM akta";
                                         $r = mysqli_query($db,$q);
                                         $c = 1;
                                         while ($akta = mysqli_fetch_array($r)) {
                                             if ($akta['type_akta']=='AJB') {
                                         ?>
-                                            <tr style="font-size: 9px; text-align: center;" style="border: 1px solid #000;">
+                                            <tr style="font-size: 9px; text-align: center;"
+                                                style="border: 1px solid #000;">
                                                 <td><?= $c ?></td>
                                                 <td><?= $akta["no_akta"] ?></td>
                                                 <td><?= $akta["type_akta"] ?></td>
@@ -97,7 +104,7 @@ $page = 'akta';
                                                 <td><?= $akta["ssb"] ?></td>
                                                 <td><?= $akta["description"] ?></td>
                                             </tr>
-                                        <?php
+                                            <?php
                                         $c++;
                                         } else if ($akta['type_akta']=='Hibah') {
                                         ?>
@@ -187,8 +194,14 @@ $page = 'akta';
                             </span>Detail Akta
                         </h3>
                     </div>
-                    <div style="text-align:right; margin-bottom: 10px;">
-                        <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
+                    <div class="d-flex gap-5 w-100 justify-content-end align-items-center">
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="text-decoration-none text-dark" href="javascript:history.back()">Back</a>
+                        </div>
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="no-print btn btn-gradient-dark"
+                                href="javascript:printDiv('print-area-1');">Print</a>
+                        </div>
                     </div>
                     <div id="print-area-1" class="print-area">
                         <div class="row">
@@ -272,8 +285,14 @@ $page = 'akta';
                             </span>Detail Akta
                         </h3>
                     </div>
-                    <div style="text-align:right; margin-bottom: 10px;">
-                        <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
+                    <div class="d-flex gap-5 w-100 justify-content-end align-items-center">
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="text-decoration-none text-dark" href="javascript:history.back()">Back</a>
+                        </div>
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="no-print btn btn-gradient-dark"
+                                href="javascript:printDiv('print-area-1');">Print</a>
+                        </div>
                     </div>
                     <div id="print-area-1" class="print-area">
                         <div class="row">
@@ -357,8 +376,14 @@ $page = 'akta';
                             </span>Detail Akta
                         </h3>
                     </div>
-                    <div style="text-align:right; margin-bottom: 10px;">
-                        <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
+                    <div class="d-flex gap-5 w-100 justify-content-end align-items-center">
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="text-decoration-none text-dark" href="javascript:history.back()">Back</a>
+                        </div>
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="no-print btn btn-gradient-dark"
+                                href="javascript:printDiv('print-area-1');">Print</a>
+                        </div>
                     </div>
                     <div id="print-area-1" class="print-area">
                         <div class="row">
@@ -442,8 +467,14 @@ $page = 'akta';
                             </span>Detail Akta
                         </h3>
                     </div>
-                    <div style="text-align:right; margin-bottom: 10px;">
-                        <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
+                    <div class="d-flex gap-5 w-100 justify-content-end align-items-center">
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="text-decoration-none text-dark" href="javascript:history.back()">Back</a>
+                        </div>
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="no-print btn btn-gradient-dark"
+                                href="javascript:printDiv('print-area-1');">Print</a>
+                        </div>
                     </div>
                     <div id="print-area-1" class="print-area">
                         <div class="row">

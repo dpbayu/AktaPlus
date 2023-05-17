@@ -37,8 +37,13 @@ $page = 'akta';
                             </span>Detail Akta
                         </h3>
                     </div>
-                    <div style="text-align:right; margin-bottom: 10px;">
-                        <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
+                    <div class="d-flex gap-5 w-100 justify-content-end align-items-center">
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="text-decoration-none text-dark" href="javascript:history.back()">Back</a>
+                        </div>
+                        <div style="text-align:right; margin-bottom: 10px;">
+                            <a class="no-print btn btn-gradient-dark" href="javascript:printDiv('print-area-1');">Print</a>
+                        </div>
                     </div>
                     <div id="print-area-1" class="print-area">
                         <div class="row">

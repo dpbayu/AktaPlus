@@ -36,6 +36,9 @@ $page = 'akta';
                             </span>PDF Akta
                         </h3>
                     </div>
+                    <div style="text-align:right; margin-bottom: 10px;">
+                        <a class="text-decoration-none text-dark" href="javascript:history.back()">Back</a>
+                    </div>
                     <div class="row">
                         <div class="card">
                             <div class="card-body" style="overflow-x: auto;">
@@ -89,7 +92,8 @@ $page = 'akta';
                                     </tbody>
                                 </table>
                             </div>
-                            <embed class="my-5" src="../assets/file/<?= $data["pdf_akta"] ?>" type="application/pdf" width="100%" height="700px" />
+                            <embed class="my-5" src="../assets/file/<?= $data["pdf_akta"] ?>" type="application/pdf"
+                                width="100%" height="700px" />
                         </div>
                     </div>
                 </div>
