@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 02:29 PM
+-- Generation Time: Nov 17, 2023 at 03:27 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -88,8 +88,7 @@ CREATE TABLE `owner` (
 --
 
 INSERT INTO `owner` (`id`, `username`, `admin_profile`, `password`, `role`) VALUES
-(1, 'Dwi', 'Antony.jpeg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner'),
-(6, 'Seprilla', 'Tzuyu 4.jpg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner');
+(1, 'Dwi', 'Antony.jpeg', '$2y$10$f.3kmePwygonkKAIKVmN.OEFbSi4f/FFy6XnJ8QuYWrZz59uVUeYm', 'Owner');
 
 -- --------------------------------------------------------
 
@@ -111,8 +110,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nik`, `password`, `fullname`, `user_profile`, `role`) VALUES
-(1, '41815010140', '$2y$10$sLt53wVO.1Hvbrcgv2jhi.a5XJztZgOYISJ8kqp2uTY28L2UPe.RG', 'Dwi Putra Bayu', 'Wallpaper 1.jpg', 'Admin'),
-(12, '41815010141', '$2y$10$NH85AePZL5XRhEOiDaXrZe9.RtujhDmZiD69/uYnDGnRylN/5YeJq', 'Syifa Khairunnisa', 'Tzuyu 3.jpg', 'Admin');
+(1, '41815010140', '$2y$10$sLt53wVO.1Hvbrcgv2jhi.a5XJztZgOYISJ8kqp2uTY28L2UPe.RG', 'Dwi Putra Bayu', 'Wallpaper 1.jpg', 'Admin');
 
 --
 -- Indexes for dumped tables
